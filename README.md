@@ -1,5 +1,9 @@
 # 动手学大模型应用开发
 
+<div align=center>
+<img src="figures/logo.png" width = "1000">
+</div>
+
 ## 项目简介
 
 本项目是一个面向小白开发者的大模型应用开发教程，旨在结合个人知识库助手项目，通过一个课程完成大模型开发的重点入门，主要内容包括：
@@ -117,3 +121,6 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 
 Github主页：https://github.com/logan-zou
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=datawhalechina/llm-universe&type=Date)](https://star-history.com/#datawhalechina/llm-universe&Date)
