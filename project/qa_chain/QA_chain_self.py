@@ -10,6 +10,14 @@ class QA_chain_self():
     """"
     不带历史记录的问答链
     - model：调用的模型名称
+    - temperature：温度系数，控制生成的随机性
+    - top_k：返回检索的前k个相似文档
+    - file_path：建库文件所在路径
+    - persist_path：向量数据库持久化路径
+    - appid：星火需要输入
+    - api_key：所有模型都需要
+    - api_secret：星火、百度文心需要输入
+    - embeddings：使用的embedding模型  
     - template：可以自定义提示模板，没有输入则使用默认的提示模板default_template_rq    
     """
 
@@ -20,16 +28,21 @@ class QA_chain_self():
     问题: {question}
     有用的回答:"""
 
-    def __init__(self, model:str, file_path:str=None, persist_path:str=None, api_key: str = None, embedding = "openai", template=default_template_rq):
+    def __init__(self, model:str, temperature:float=0.0, top_k:int=4,  file_path:str=None, persist_path:str=None, appid:str=None, api_key:str=None, api_secret:str=None, embedding = "openai", template=default_template_rq):
         self.model = model
+        self.temperature = temperature
+        self.top_k = top_k
         self.file_path = file_path
         self.persist_path = persist_path
+        self.appid = appid
         self.api_key = api_key
+        self.api_secret = api_secret
         self.embedding = embedding
         self.template = template
         
+
         self.vectordb = get_vectordb(self.file_path, self.persist_path, self.api_key, self.embedding)
-        self.llm = model_to_llm(self.model)
+        self.llm = model_to_llm(self.model, self.temperature, self.appid, self.api_key, self.api_secret)
 
         self.QA_CHAIN_PROMPT = PromptTemplate(input_variables=["context","question"],
                                     template=self.template)
@@ -42,7 +55,7 @@ class QA_chain_self():
     #基于大模型的问答 prompt 使用的默认提示模版
     #default_template_llm = """请回答下列问题:{question}"""
            
-    def answer(self, question:str=None, temperature = 0, top_k = 5):
+    def answer(self, question:str=None, ):
         """"
         核心方法，调用问答链
         arguments: 
@@ -52,5 +65,5 @@ class QA_chain_self():
         if len(question) == 0:
             return ""
         
-        result = self.qa_chain({"query": question, "temperature": temperature, "top_k":top_k})
+        result = self.qa_chain({"query": question, "temperature": self.temperature, "top_k":self.top_k})
         return result["result"]   
