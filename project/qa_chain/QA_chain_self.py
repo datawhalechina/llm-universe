@@ -2,8 +2,8 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain.vectorstores import Chroma
 
-import model_to_llm
-import get_vectordb
+from model_to_llm import model_to_llm
+from get_vectordb import get_vectordb
 
 
 class QA_chain_self():

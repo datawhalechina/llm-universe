@@ -1,3 +1,7 @@
+import sys 
+sys.path.append("../embedding") 
+sys.path.append("../database") 
+
 from langchain.embeddings.openai import OpenAIEmbeddings    # 调用 OpenAI 的 Embeddings 模型
 import os
 from zhipuai_embedding import ZhipuAIEmbeddings
@@ -5,7 +9,7 @@ from zhipuai_embedding import ZhipuAIEmbeddings
 from create_db import create_db,load_knowledge_db
 
 
-def get_vectordb(self, file_path:str=None, persist_path:str=None, api_key: str = None, embedding = "openai"):
+def get_vectordb(file_path:str=None, persist_path:str=None, api_key: str = None, embedding = "openai"):
     """
     返回向量数据库对象
     输入参数：
@@ -16,23 +20,23 @@ def get_vectordb(self, file_path:str=None, persist_path:str=None, api_key: str =
     embedding：可以使用zhipuai等embeddin，不输入该参数则默认使用 openai embedding，注意此时api_key不要输错
     """
     if embedding == "openai":
-        embedding = OpenAIEmbeddings() 
+        embedding = OpenAIEmbeddings(openai_api_key=api_key) 
     elif embedding == "zhipu":
-        embedding = ZhipuAIEmbeddings()
+        embedding = ZhipuAIEmbeddings(zhipuai_api_key = api_key)
 
-
+    
     if os.path.exists(persist_path):  #持久化目录存在
         contents = os.listdir(persist_path)
         if len(contents) == 0:  #但是下面为空
             #print("目录为空")
-            vectordb = create_db(file_path, embedding)
+            vectordb = create_db(file_path, persist_path, embedding)
             #presit_knowledge_db(vectordb)
             vectordb = load_knowledge_db(persist_path, embedding)
         else:
             #print("目录不为空")
             vectordb = load_knowledge_db(persist_path, embedding)
     else: #目录不存在，从头开始创建向量数据库
-        vectordb = create_db(file_path, embedding)
+        vectordb = create_db(file_path, persist_path, embedding)
         #presit_knowledge_db(vectordb)
         vectordb = load_knowledge_db(persist_path, embedding)
 
