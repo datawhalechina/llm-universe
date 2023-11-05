@@ -31,7 +31,7 @@ def file_loader(file, loaders):
         loaders.append(UnstructuredFileLoader(file))
     return
 
-def create_db(files, embeddings):
+def create_db(files, persist_directory, embeddings,):
     """
     该函数用于加载 PDF 文件，切分文档，生成文档的嵌入向量，创建向量数据库。
 
@@ -44,7 +44,8 @@ def create_db(files, embeddings):
     """
     if type(files) == str:
         files = [files]
-    if len(files) == 0:
+    print("3:",files)
+    if files == 0:
         return "can't load empty file"
     if type(files) != list:
         files = [files]
@@ -60,7 +61,7 @@ def create_db(files, embeddings):
     split_docs = text_splitter.split_documents(docs[:10])
 
     # 定义持久化路径
-    persist_directory = '../knowledge_base/chroma'
+    #persist_directory = '../knowledge_base/chroma'
     if type(embeddings) == str:
         embeddings =  get_embedding(embeddings)
 
@@ -92,9 +93,9 @@ def load_knowledge_db(path, embeddings):
     返回:
     vectordb: 加载的数据库。
     """
-    vectordb = Chroma.from_documents(
-        embeddings=embeddings,
-        persist_directory=path.name  
+    vectordb = Chroma(
+        persist_directory=path,
+        embedding_function=embeddings
     )
     return vectordb
 

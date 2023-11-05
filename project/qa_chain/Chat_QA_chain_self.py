@@ -5,8 +5,8 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 from langchain.chat_models import ChatOpenAI
 
-import model_to_llm
-import get_vectordb
+from model_to_llm import model_to_llm
+from get_vectordb import get_vectordb
 
 
 class Chat_QA_chain_self:
@@ -37,6 +37,7 @@ class Chat_QA_chain_self:
         self.api_secret = api_secret
         self.embedding = embedding
 
+
         self.vectordb = get_vectordb(self.file_path, self.persist_path, self.api_key, self.embedding)
         self.llm = model_to_llm(self.model, self.temperature, self.appid, self.api_key, self.api_secret)
 
@@ -56,7 +57,7 @@ class Chat_QA_chain_self:
         return self.chat_history.clear()
 
     
-    def change_history_length(self):
+    def change_history_length(self,):
         """
         保存指定对话轮次的历史记录
         输入参数：
@@ -77,6 +78,7 @@ class Chat_QA_chain_self:
         if len(question) == 0:
             return "", self.chat_history
 
+        #print(self.llm)
         result = self.qa({"question": question})     
         self.chat_history.append((question,result['answer'])) #更新历史记录
 
