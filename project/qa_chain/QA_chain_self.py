@@ -55,7 +55,7 @@ class QA_chain_self():
     #基于大模型的问答 prompt 使用的默认提示模版
     #default_template_llm = """请回答下列问题:{question}"""
            
-    def answer(self, question:str=None, ):
+    def answer(self, question:str=None, temperature = None, top_k = None):
         """"
         核心方法，调用问答链
         arguments: 
@@ -65,5 +65,11 @@ class QA_chain_self():
         if len(question) == 0:
             return ""
         
-        result = self.qa_chain({"query": question, "temperature": self.temperature, "top_k":self.top_k})
+        if temperature == None:
+            temperature = self.temperature
+            
+        if top_k == None:
+            top_k = self.top_k
+
+        result = self.qa_chain({"query": question, "temperature": temperature, "top_k": top_k})
         return result["result"]   
