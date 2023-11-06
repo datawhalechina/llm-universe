@@ -1,9 +1,11 @@
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain.vectorstores import Chroma
-
-from model_to_llm import model_to_llm
-from get_vectordb import get_vectordb
+import sys
+sys.path.append("../")
+from qa_chain.model_to_llm import model_to_llm
+from qa_chain.get_vectordb import get_vectordb
+import sys
 
 
 class QA_chain_self():
@@ -28,7 +30,7 @@ class QA_chain_self():
     问题: {question}
     有用的回答:"""
 
-    def __init__(self, model:str, temperature:float=0.0, top_k:int=4,  file_path:str=None, persist_path:str=None, appid:str=None, api_key:str=None, api_secret:str=None, embedding = "openai", template=default_template_rq):
+    def __init__(self, model:str, temperature:float=0.0, top_k:int=4,  file_path:str=None, persist_path:str=None, appid:str=None, api_key:str=None, api_secret:str=None, embedding = "openai", template=default_template_rq, embedding_key = None):
         self.model = model
         self.temperature = temperature
         self.top_k = top_k
@@ -39,9 +41,10 @@ class QA_chain_self():
         self.api_secret = api_secret
         self.embedding = embedding
         self.template = template
-        
+        if embedding_key == None:
+            self.embedding_key = api_key
 
-        self.vectordb = get_vectordb(self.file_path, self.persist_path, self.api_key, self.embedding)
+        self.vectordb = get_vectordb(self.file_path, self.persist_path, self.embedding_key, self.embedding)
         self.llm = model_to_llm(self.model, self.temperature, self.appid, self.api_key, self.api_secret)
 
         self.QA_CHAIN_PROMPT = PromptTemplate(input_variables=["context","question"],
