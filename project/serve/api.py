@@ -29,7 +29,7 @@ template = """使用以下上下文来回答最后的问题。如果你不知道
 # 定义一个数据模型，用于接收POST请求中的数据
 class Item(BaseModel):
     prompt : str # 用户 prompt
-    model : str # 使用的模型
+    model : str = "gpt-3.5-turbo"# 使用的模型
     temperature : float = 0.1# 温度系数
     if_history : bool = False # 是否使用历史对话功能
     # API_Key
@@ -43,7 +43,9 @@ class Item(BaseModel):
     # APISecret
     api_secret : str = None
     # 数据库路径
-    db_path : str = "../database"
+    db_path : str = "../knowledge_base/chroma"
+    # 源文件路径
+    file_path : str = "../knowledge_base"
     # prompt template
     prompt_template : str = template
     # Template 变量
@@ -52,6 +54,8 @@ class Item(BaseModel):
     embedding : str = "openai"
     # Top K
     top_k : int = 5
+    # embedding_key
+    embedding_key : str = api_key
 
 @app.post("/answer/")
 async def get_response(item: Item):
@@ -59,11 +63,10 @@ async def get_response(item: Item):
     # 首先确定需要调用的链
     if not item.if_history:
         # 调用 Chat 链
-        chain = QA_chain_self(item.db_path, item.model, item.prompt_template, 
-                                   item.input_variables, item.temperature, item.api_key,
-                                   item.secret_key, item.access_token, item.appid, item.api_secret, item.embedding)
-        
-        response = chain.answer(question = item.prompt, top_k = item.top_k, temperature = item.temperature)
+        chain = QA_chain_self(model=item.model, temperature=item.temperature, top_k=item.top_k, file_path=item.file_path, persist_path=item.db_path, 
+                                appid=item.appid, api_key=item.api_key, embedding=item.embedding, template=template, api_secret=item.api_secret, embedding_key=item.embedding_key)
+
+        response = chain.answer(question = item.prompt)
     
         return response
     
