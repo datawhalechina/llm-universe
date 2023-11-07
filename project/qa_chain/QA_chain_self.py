@@ -30,7 +30,7 @@ class QA_chain_self():
     问题: {question}
     有用的回答:"""
 
-    def __init__(self, model:str, temperature:float=0.0, top_k:int=4,  file_path:str=None, persist_path:str=None, appid:str=None, api_key:str=None, api_secret:str=None, embedding = "openai", template=default_template_rq, embedding_key = None):
+    def __init__(self, model:str, temperature:float=0.0, top_k:int=4,  file_path:str=None, persist_path:str=None, appid:str=None, api_key:str=None, api_secret:str=None, embedding = "openai",  embedding_key = None, template=default_template_rq):
         self.model = model
         self.temperature = temperature
         self.top_k = top_k
@@ -40,25 +40,26 @@ class QA_chain_self():
         self.api_key = api_key
         self.api_secret = api_secret
         self.embedding = embedding
+        self.embedding_key = embedding_key
         self.template = template
-        if embedding_key == None:
-            self.embedding_key = api_key
 
-        self.vectordb = get_vectordb(self.file_path, self.persist_path, self.embedding_key, self.embedding)
+        self.vectordb = get_vectordb(self.file_path, self.persist_path, self.embedding,self.embedding_key)
         self.llm = model_to_llm(self.model, self.temperature, self.appid, self.api_key, self.api_secret)
 
         self.QA_CHAIN_PROMPT = PromptTemplate(input_variables=["context","question"],
                                     template=self.template)
+        self.retriever = self.vectordb.as_retriever(search_type="similarity",   
+                                        search_kwargs={'k': self.top_k})  #默认similarity，k=4
         # 自定义 QA 链
         self.qa_chain = RetrievalQA.from_chain_type(llm=self.llm,
-                                        retriever=self.vectordb.as_retriever(),
+                                        retriever=self.retriever,
                                         return_source_documents=True,
                                         chain_type_kwargs={"prompt":self.QA_CHAIN_PROMPT})
 
     #基于大模型的问答 prompt 使用的默认提示模版
     #default_template_llm = """请回答下列问题:{question}"""
            
-    def answer(self, question:str=None, temperature = None, top_k = None):
+    def answer(self, question:str=None, temperature = None, top_k = 4):
         """"
         核心方法，调用问答链
         arguments: 
