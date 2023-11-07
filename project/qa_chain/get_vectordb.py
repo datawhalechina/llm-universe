@@ -9,7 +9,7 @@ from zhipuai_embedding import ZhipuAIEmbeddings
 from create_db import create_db,load_knowledge_db
 
 
-def get_vectordb(file_path:str=None, persist_path:str=None, api_key: str = None, embedding = "openai"):
+def get_vectordb(file_path:str=None, persist_path:str=None, embedding = "openai",embedding_key:str=None):
     """
     返回向量数据库对象
     输入参数：
@@ -20,9 +20,9 @@ def get_vectordb(file_path:str=None, persist_path:str=None, api_key: str = None,
     embedding：可以使用zhipuai等embeddin，不输入该参数则默认使用 openai embedding，注意此时api_key不要输错
     """
     if embedding == "openai":
-        embedding = OpenAIEmbeddings(openai_api_key=api_key) 
+        embedding = OpenAIEmbeddings(openai_api_key = embedding_key) 
     elif embedding == "zhipu":
-        embedding = ZhipuAIEmbeddings(zhipuai_api_key = api_key)
+        embedding = ZhipuAIEmbeddings(zhipuai_api_key = embedding_key)
 
     
     if os.path.exists(persist_path):  #持久化目录存在
