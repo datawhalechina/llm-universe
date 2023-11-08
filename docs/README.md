@@ -57,11 +57,14 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
     2023.11.01              开放公测
     2023.11.15              正式上线
 
-### 示例
+## 在线阅读地址
 
-正在开发仓库：https://github.com/datawhalechina/llm-universe
-在线阅读地址：https://datawhalechina.github.io/llm-universe/#/
+- [项目仓库](https://github.com/datawhalechina/llm-universe)
+- [在线阅读](https://datawhalechina.github.io/llm-universe/#/)
 
+<div align=center>
+<img src="figures/group.jpg" width = "300">
+</div>
 
 ### 内容大纲及对应负责人
 

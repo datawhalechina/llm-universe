@@ -52,6 +52,10 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 
 在线阅读地址：[动手学大模型应用开发](https://datawhalechina.github.io/llm-universe/#/)
 
+<div align=center>
+<img src="figures/group.jpg" width = "300">
+</div>
+
 ## 内容大纲
 
 **思维导图：**
