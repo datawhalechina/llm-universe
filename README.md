@@ -116,6 +116,8 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 - [邹雨衡-项目负责人](https://github.com/logan-zou)（Datawhale成员-对外经济贸易大学研究生）
 - [徐虎-内容创作者](https://github.com/xuhu0115)（Datawhale成员）
 - [高立业-内容创作者](https://github.com/0-yy-0)（DataWhale成员-算法工程师）
+- [崔腾松-项目支持者](https://github.com/2951121599)（Datawhale成员-奇想星球联合发起人）
+- [June-项目支持者](https://github.com/JuneYaooo)（Datawhale成员-奇想星球联合发起人）
 
 **其他**
 
