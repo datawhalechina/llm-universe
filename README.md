@@ -24,7 +24,7 @@
     figures：图片文件。
     project：个人知识库助手项目代码。
 
-## 立项理由
+## 项目意义
 
 LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语言理解、自然语言生成能力，为开发者提供了新的、更强大的应用开发选择。随着国内外井喷式的 LLM API 服务开放，如何基于 LLM API 快速、便捷地开发具备更强能力、集成 LLM 的应用，开始成为开发者的一项重要技能。
 
@@ -36,7 +36,7 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 
 所有具备基础 Python 能力，想要掌握 LLM 应用开发技能的开发者。
 
-本项目对学习者的人工智能基础、算法基础没有任何要求，仅需要掌握基本 Python 语法、掌握初级 Python 开发技能即可。
+**本项目对学习者的人工智能基础、算法基础没有任何要求，仅需要掌握基本 Python 语法、掌握初级 Python 开发技能即可。**
 
 本项目对本地硬件基本没有要求，不需要 GPU 环境，个人电脑及服务器均可用于学习。
 
@@ -48,20 +48,11 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 
 3. 兼具统一性与拓展性。本项目对 GPT、百度文心、讯飞星火、智谱GLM 等国内外主要 LLM API 进行了统一封装，支持一键调用不同的 LLM，帮助开发者将更多的精力放在学习应用与模型本身的优化上，而不需要花时间在繁琐的调用细节上；同时，本教程拟上线 [奇想星球 | AIGC共创社区平台](https://1aigc.cn/)，支持学习者自定义项目为本教程增加拓展内容，具备充分的拓展性。
 
-## 项目规划
+## 在线阅读地址
 
-### 时间规划
+在线阅读地址：[动手学大模型应用开发](https://datawhalechina.github.io/llm-universe/#/)
 
-    2023.10.01~2023.10.22   完成初稿
-    2023.10.23~10.31            内测
-    2023.11.01              开放公测
-    2023.11.15              正式上线
-
-### 示例
-
-在线阅读地址：https://datawhalechina.github.io/llm-universe/#/
-
-### 内容大纲及对应负责人
+## 内容大纲
 
 **思维导图：**
 <div align=center>
@@ -117,13 +108,27 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 第八章 总结及拓展 @邹雨衡
 
 
-## 项目负责人
+## 致谢
 
-邹雨衡
 
-微信：Logan12120421
+**核心贡献者**
 
-Github主页：https://github.com/logan-zou
+- [邹雨衡-项目负责人](https://github.com/logan-zou)（Datawhale成员-对外经济贸易大学研究生）
+- [徐虎-内容创作者](https://github.com/xuhu0115)（Datawhale成员）
+- [高立业-内容创作者](https://github.com/0-yy-0)（DataWhale成员-算法工程师）
+
+**其他**
+
+1. 特别感谢 [@Sm1les](https://github.com/Sm1les)、[@LSGOMYP](https://github.com/LSGOMYP) 对本项目的帮助与支持；
+2. 特别感谢[奇想星球 | AIGC共创社区平台](https://1aigc.cn/)提供的支持，欢迎大家关注；
+3. 如果有任何想法可以联系我们 DataWhale 也欢迎大家多多提出 issue；
+4. 特别感谢以下为教程做出贡献的同学！
+
+<a href="https://github.com/datawhalechina/llm-universe/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=datawhalechina/llm-universe" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
 
 ## Star History
 
