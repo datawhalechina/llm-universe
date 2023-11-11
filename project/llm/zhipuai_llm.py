@@ -92,7 +92,7 @@ class ZhipuAILLM(Self_LLM):
 
         try:
             import zhipuai
-
+            zhipuai.api_key = values["zhipuai_api_key"]
             values["client"] = zhipuai.model_api
             zhipuai.api_key = values["zhipuai_api_key"]
         except ImportError:
@@ -118,7 +118,7 @@ class ZhipuAILLM(Self_LLM):
     def _default_params(self) -> Dict[str, Any]:
         """Get the default parameters for calling OpenAI API."""
         normal_params = {
-            "streaming" :self.streaming,
+            "streaming": self.streaming,
             "top_p": self.top_p,
             "temperature": self.temperature,
             "request_id": self.request_id,
@@ -161,9 +161,7 @@ class ZhipuAILLM(Self_LLM):
             return completion
         params = self._convert_prompt_msg_params(prompt, **kwargs)
 
-        print(**kwargs)
         response_payload = self.client.invoke(**params)
-
 
         return response_payload["data"]["choices"][-1]["content"]
 
@@ -181,7 +179,6 @@ class ZhipuAILLM(Self_LLM):
             return completion
 
         params = self._convert_prompt_msg_params(prompt, **kwargs)
-        print(**kwargs)
 
         response = await self.client.async_invoke(**params)
 

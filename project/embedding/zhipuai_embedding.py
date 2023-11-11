@@ -9,6 +9,7 @@ from langchain.utils import get_from_dict_or_env
 
 logger = logging.getLogger(__name__)
 
+
 class ZhipuAIEmbeddings(BaseModel, Embeddings):
     """`Zhipuai Embeddings` embedding models."""
 
@@ -53,7 +54,7 @@ class ZhipuAIEmbeddings(BaseModel, Embeddings):
                 "`pip install zhipuai`"
             )
         return values
-        
+
     def _embed(self, texts: str) -> List[float]:
         # send request
         try:
@@ -102,8 +103,10 @@ class ZhipuAIEmbeddings(BaseModel, Embeddings):
 
     async def aembed_documents(self, texts: List[str]) -> List[List[float]]:
         """Asynchronous Embed search docs."""
-        raise NotImplementedError("Please use `embed_documents`. Official does not support asynchronous requests")
+        raise NotImplementedError(
+            "Please use `embed_documents`. Official does not support asynchronous requests")
 
     async def aembed_query(self, text: str) -> List[float]:
         """Asynchronous Embed query text."""
-        raise NotImplementedError("Please use `aembed_query`. Official does not support asynchronous requests")
+        raise NotImplementedError(
+            "Please use `aembed_query`. Official does not support asynchronous requests")
