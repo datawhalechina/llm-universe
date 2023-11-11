@@ -5,8 +5,8 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 from langchain.chat_models import ChatOpenAI
 
-from model_to_llm import model_to_llm
-from get_vectordb import get_vectordb
+from qa_chain.model_to_llm import model_to_llm
+from qa_chain.get_vectordb import get_vectordb
 
 
 class Chat_QA_chain_self:
@@ -95,7 +95,7 @@ class Chat_QA_chain_self:
         answer =  result['answer']
         self.chat_history.append((question,answer)) #更新历史记录
 
-        return answer,self.chat_history  #返回本次回答和更新后的历史记录
+        return self.chat_history  #返回本次回答和更新后的历史记录
 
 
 

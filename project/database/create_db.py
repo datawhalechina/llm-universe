@@ -1,19 +1,31 @@
 import os
 import sys
+
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-# 首先实现基本配置
-from langchain.vectorstores import Chroma
-from langchain.document_loaders import PyMuPDFLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.document_loaders import UnstructuredMarkdownLoader
-from langchain.document_loaders import UnstructuredFileLoader
-
-from embedding.call_embedding import get_embedding
-import gradio as gr
-
-from dotenv import load_dotenv, find_dotenv
+import time
 import tempfile
+from dotenv import load_dotenv, find_dotenv
+import gradio as gr
+from embedding.call_embedding import get_embedding
+from langchain.document_loaders import UnstructuredFileLoader
+from langchain.document_loaders import UnstructuredMarkdownLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.document_loaders import PyMuPDFLoader
+from langchain.vectorstores import Chroma
+# 首先实现基本配置
+
+
+DEFAULT_DB_PATH = "../knowledge_base/test_db"
+DEFAULT_PERSIST_PATH = "../database/vector_data_base"
+
+
+def get_files(dir_path):
+    file_list = []
+    for filepath, dirnames, filenames in os.walk(dir_path):
+        for filename in filenames:
+            file_list.append(os.path.join(filepath, filename))
+    return file_list
 
 
 def file_loader(file, loaders):
@@ -31,7 +43,13 @@ def file_loader(file, loaders):
         loaders.append(UnstructuredFileLoader(file))
     return
 
-def create_db(files, persist_directory, embeddings,):
+
+def create_db_info(files=DEFAULT_DB_PATH, embeddings="openai", persist_directory=DEFAULT_PERSIST_PATH):
+    vectordb = create_db(files, persist_directory, embeddings)
+    return ""
+
+
+def create_db(files=DEFAULT_DB_PATH, persist_directory=DEFAULT_PERSIST_PATH, embeddings="openai"):
     """
     该函数用于加载 PDF 文件，切分文档，生成文档的嵌入向量，创建向量数据库。
 
@@ -42,28 +60,25 @@ def create_db(files, persist_directory, embeddings,):
     返回:
     vectordb: 创建的数据库。
     """
-    if type(files) == str:
-        files = [files]
-    print("3:",files)
-    if files == 0:
+    if files == None:
         return "can't load empty file"
     if type(files) != list:
         files = [files]
     loaders = []
-    [file_loader(file, loaders)  for file in files]
+    [file_loader(file, loaders) for file in files]
     docs = []
     for loader in loaders:
         if loader is not None:
             docs.extend(loader.load())
-    [print(doc.metadata) for doc in docs]
     # 切分文档
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=150)
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=500, chunk_overlap=150)
     split_docs = text_splitter.split_documents(docs[:10])
 
     # 定义持久化路径
-    #persist_directory = '../knowledge_base/chroma'
+    # persist_directory = '../knowledge_base/chroma'
     if type(embeddings) == str:
-        embeddings =  get_embedding(embeddings)
+        embeddings = get_embedding(embeddings)
 
     # 加载数据库
     vectordb = Chroma.from_documents(
@@ -72,6 +87,8 @@ def create_db(files, persist_directory, embeddings,):
         persist_directory=persist_directory  # 允许我们将persist_directory目录保存到磁盘上
     )
     vectordb.persist()
+    return vectordb
+
 
 def presit_knowledge_db(vectordb):
     """
@@ -81,6 +98,7 @@ def presit_knowledge_db(vectordb):
     vectordb: 要持久化的向量数据库。
     """
     vectordb.persist()
+
 
 def load_knowledge_db(path, embeddings):
     """
@@ -99,7 +117,6 @@ def load_knowledge_db(path, embeddings):
     )
     return vectordb
 
+
 if __name__ == "__main__":
-    db_path = "../../knowledge_base"
-    persist_directory = "../../vector_data_base"
-    create_db(db_path, "zhipuai")
+    create_db(embeddings="zhipuai")
