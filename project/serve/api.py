@@ -44,7 +44,9 @@ class Item(BaseModel):
     # APPID
     appid : str = None
     # APISecret
-    api_secret : str = None
+    Spark_api_secret : str = None
+    # Secret_key
+    Wenxin_secret_key : str = None
     # 数据库路径
     db_path : str = "../knowledge_base/chroma"
     # 源文件路径
@@ -58,7 +60,7 @@ class Item(BaseModel):
     # Top K
     top_k : int = 5
     # embedding_key
-    embedding_key : str = api_key
+    embedding_key : str = None
 
 @app.post("/answer/")
 async def get_response(item: Item):
@@ -66,8 +68,11 @@ async def get_response(item: Item):
     # 首先确定需要调用的链
     if not item.if_history:
         # 调用 Chat 链
+        # return item.embedding_key
+        if item.embedding_key == None:
+            item.embedding_key = item.api_key
         chain = QA_chain_self(model=item.model, temperature=item.temperature, top_k=item.top_k, file_path=item.file_path, persist_path=item.db_path, 
-                                appid=item.appid, api_key=item.api_key, embedding=item.embedding, template=template, api_secret=item.api_secret, embedding_key=item.embedding_key)
+                                appid=item.appid, api_key=item.api_key, embedding=item.embedding, template=template, Spark_api_secret=item.Spark_api_secret, Wenxin_secret_key=item.Wenxin_secret_key, embedding_key=item.embedding_key)
 
         response = chain.answer(question = item.prompt)
     
