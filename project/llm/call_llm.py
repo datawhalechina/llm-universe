@@ -16,8 +16,10 @@ import requests
 import _thread as thread
 import base64
 import datetime
+from dotenv import load_dotenv, find_dotenv
 import hashlib
 import hmac
+import os
 import queue
 from urllib.parse import urlparse
 import ssl
@@ -55,7 +57,7 @@ def get_completion(prompt :str, model :str, temperature=0.1,api_key=None, secret
 def get_completion_gpt(prompt : str, model : str, temperature : float, api_key:str, max_tokens:int):
     # 封装 OpenAI 原生接口
     if api_key == None:
-        return "没有 API Key，调用失败"
+        api_key = parse_llm_api_key("openai")
     openai.api_key = api_key
     # 具体调用
     messages = [{"role": "user", "content": prompt}]
@@ -87,7 +89,7 @@ def get_access_token(api_key, secret_key):
 def get_completion_wenxin(prompt : str, model : str, temperature : float, api_key:str, secret_key : str):
     # 封装百度文心原生接口
     if api_key == None or secret_key == None:
-        return "没有 API Key 或没有 Secret Key，调用失败"
+        api_key, secret_key = parse_llm_api_key("wenxin")
     # 获取access_token
     access_token = get_access_token(api_key, secret_key)
     # 调用接口
@@ -112,7 +114,7 @@ def get_completion_wenxin(prompt : str, model : str, temperature : float, api_ke
 
 def get_completion_spark(prompt : str, model : str, temperature : float, api_key:str, appid : str, api_secret : str, max_tokens : int):
     if api_key == None or appid == None and api_secret == None:
-        return "没有 API Key 或没有 APPID 或没有 API Secret，调用失败"
+        api_key, appid, api_secret = parse_llm_api_key("spark")
     
     # 配置 1.5 和 2 的不同环境
     if model == "Spark-1.5":
@@ -129,7 +131,7 @@ def get_completion_spark(prompt : str, model : str, temperature : float, api_key
 def get_completion_glm(prompt : str, model : str, temperature : float, api_key:str, max_tokens : int):
     # 获取GLM回答
     if api_key == None:
-        return "没有 API Key，调用失败"
+        api_key = parse_llm_api_key("zhipuai")
     zhipuai.api_key = api_key
 
     response = zhipuai.model_api.invoke(
@@ -294,3 +296,21 @@ def spark_main(appid, api_key, api_secret, Spark_url,domain, question, temperatu
     ws.max_tokens = max_tokens
     ws.run_forever(sslopt={"cert_reqs": ssl.CERT_NONE})
     return ''.join([output_queue.get() for _ in range(output_queue.qsize())])
+
+def parse_llm_api_key(model:str, env_file:dict()=None):
+    """
+    通过 model 和 env_file 的来解析平台参数
+    """   
+    if env_file == None:
+        _ = load_dotenv(find_dotenv())
+        env_file = os.environ
+    if model == "openai":
+        return env_file["openai_api_key"]
+    elif model == "wenxin":
+        return env_file["wenxin_api_key"], env_file["wenxin_secret_key"]
+    elif model == "spark":
+        return env_file["spark_api_key"], env_file["spark_appid"], env_file["spark_api_secret"]
+    elif model == "zhipuai":
+        return env_file["zhipuai_api_key"]
+    else:
+        raise ValueError(f"model{model} not support!!!")
