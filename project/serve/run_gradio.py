@@ -21,30 +21,51 @@ from qa_chain.QA_chain_self import QA_chain_self
 # 寻找 .env 文件并加载它的内容
 # 这允许您使用 os.environ 来读取在 .env 文件中设置的环境变量
 _ = load_dotenv(find_dotenv())
-LLM_MODEL_LIST = ['chatglm_std', 'chatgpt', 'wenxin']
+LLM_MODEL_DICT = {
+    "openai": ["gpt-3.5-turbo", "gpt-3.5-turbo-16k-0613", "gpt-3.5-turbo-0613", "gpt-4", "gpt-4-32k"],
+    "wenxin": ["ERNIE-Bot", "ERNIE-Bot-4", "ERNIE-Bot-turbo"],
+    "xinhuo": ["Spark-1.5", "Spark-2.0"],
+    "zhipu": ["chatglm_pro", "chatglm_std", "chatglm_lite"]
+}
+
+
+LLM_MODEL_LIST = sum(list(LLM_MODEL_DICT.values()),[])
 INIT_LLM = "chatglm_std"
 EMBEDDING_MODEL_LIST = ['zhipuai', 'openai', 'm3e']
-INIT_EMBEDDING_MODEL = "zhipuai"
-DEFAULT_DB_PATH = "../knowledge_base/test_db"
+INIT_EMBEDDING_MODEL = "openai"
+DEFAULT_DB_PATH = "../knowledge_base"
 DEFAULT_PERSIST_PATH = "../database/vector_data_base"
 
-
+def get_model_by_platform(platform):
+    return LLM_MODEL_DICT.get(platform, "")
 class Model_center():
+    """
+    存储问答 Chain 的对象 
+
+    - chat_qa_chain_self: 以 (model, embedding) 为键存储的带历史记录的问答链。
+    - qa_chain_self: 以 (model, embedding) 为键存储的不带历史记录的问答链。
+    """
     def __init__(self):
         self.chat_qa_chain_self = {}
         self.qa_chain_self = {}
 
     def chat_qa_chain_self_answer(self, question: str, chat_history: list = [], model: str = "openai", embedding: str = "openai", temperature: float = 0.0, top_k: int = 4, history_len: int = 3, file_path: str = DEFAULT_DB_PATH, persist_path: str = DEFAULT_PERSIST_PATH):
+        """
+        调用带历史记录的问答链进行回答
+        """
         try:
             if (model, embedding) not in self.chat_qa_chain_self:
                 self.chat_qa_chain_self[(model, embedding)] = Chat_QA_chain_self(model=model, temperature=temperature,
-                                                                                 top_k=top_k, chat_history=chat_history, file_path=file_path, persist_path=persist_path, embedding=embedding)
+                                                                                    top_k=top_k, chat_history=chat_history, file_path=file_path, persist_path=persist_path, embedding=embedding)
             chain = self.chat_qa_chain_self[(model, embedding)]
             return "", chain.answer(question=question, temperature=temperature, top_k=top_k)
         except Exception as e:
             return e, chat_history
 
     def qa_chain_self_answer(self, question: str, chat_history: list = [], model: str = "openai", embedding="openai", temperature: float = 0.0, top_k: int = 4, file_path: str = DEFAULT_DB_PATH, persist_path: str = DEFAULT_PERSIST_PATH):
+        """
+        调用不带历史记录的问答链进行回答
+        """
         try:
             if (model, embedding) not in self.qa_chain_self:
                 self.qa_chain_self[(model, embedding)] = QA_chain_self(model=model, temperature=temperature,
@@ -60,8 +81,6 @@ class Model_center():
         if len(self.chat_qa_chain_self) > 0:
             for chain in self.chat_qa_chain_self.values():
                 chain.clear_history()
-
-# 定义一个函数，用于格式化聊天 prompt。
 
 
 def format_chat_prompt(message, chat_history):
@@ -88,7 +107,6 @@ def format_chat_prompt(message, chat_history):
     # 返回格式化后的 prompt。
     return prompt
 
-# 定义一个函数，用于生成机器人的回复。
 
 
 def respond(message, chat_history, llm, history_len=3, temperature=0.1, max_tokens=2048):
@@ -123,8 +141,8 @@ model_center = Model_center()
 
 block = gr.Blocks()
 with block as demo:
-    gr.Markdown("""<h1><center>Chat Robot</center></h1>
-    <center>Local Knowledge Base Q&A with llm</center>
+    gr.Markdown("""<h1><center>LLM-universe</center></h1>
+    <center>动手学大模型应用开发</center>
     """)
     with gr.Row():
         with gr.Column(scale=4):
@@ -198,11 +216,13 @@ with block as demo:
 
         # 设置文本框的提交事件（即按下Enter键时）。功能与上面的 llm_btn 按钮点击事件相同。
         msg.submit(respond, inputs=[
-                   msg, chatbot,  llm, history_len, temperature], outputs=[msg, chatbot], show_progress="minimal")
+                   msg, chatbot,  llm, history_len, temperature], outputs=[msg, chatbot], show_progress="hidden")
         # 点击后清空后端存储的聊天记录
         clear.click(model_center.clear_history)
     gr.Markdown("""提醒：<br>
-    1. 使用时请先上传自己的知识文件，并且文件中不含某些特殊字符，否则将返回error. <br>
+    1. 使用时请先上传自己的知识文件，不然将会解析项目自带的知识库。
+    2. 初始化数据库时间可能较长，请耐心等待。
+    3. 使用中如果出现异常，将会在文本输入框进行展示，请不要惊慌。 <br>
     """)
 # threads to consume the request
 gr.close_all()
