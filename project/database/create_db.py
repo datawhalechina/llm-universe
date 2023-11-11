@@ -6,7 +6,6 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import time
 import tempfile
 from dotenv import load_dotenv, find_dotenv
-import gradio as gr
 from embedding.call_embedding import get_embedding
 from langchain.document_loaders import UnstructuredFileLoader
 from langchain.document_loaders import UnstructuredMarkdownLoader
@@ -16,7 +15,7 @@ from langchain.vectorstores import Chroma
 # 首先实现基本配置
 
 
-DEFAULT_DB_PATH = "../knowledge_base/test_db"
+DEFAULT_DB_PATH = "../knowledge_base"
 DEFAULT_PERSIST_PATH = "../database/vector_data_base"
 
 
@@ -77,8 +76,7 @@ def create_db(files=DEFAULT_DB_PATH, persist_directory=DEFAULT_PERSIST_PATH, emb
 
     # 定义持久化路径
     # persist_directory = '../knowledge_base/chroma'
-    if type(embeddings) == str:
-        embeddings = get_embedding(embeddings)
+    embeddings = get_embedding(embedding=embeddings)
 
     # 加载数据库
     vectordb = Chroma.from_documents(
@@ -119,4 +117,4 @@ def load_knowledge_db(path, embeddings):
 
 
 if __name__ == "__main__":
-    create_db(embeddings="zhipuai")
+    create_db(embeddings="openai")
