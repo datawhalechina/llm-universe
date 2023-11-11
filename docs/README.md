@@ -62,10 +62,6 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 - [项目仓库](https://github.com/datawhalechina/llm-universe)
 - [在线阅读](https://datawhalechina.github.io/llm-universe/#/)
 
-<div align=center>
-<img src="figures/group.jpg" width = "300">
-</div>
-
 ### 内容大纲及对应负责人
 
 **思维导图：**
