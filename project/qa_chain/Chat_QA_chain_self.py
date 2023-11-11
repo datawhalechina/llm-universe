@@ -20,11 +20,13 @@ class Chat_QA_chain_self:
     - file_path：建库文件所在路径
     - persist_path：向量数据库持久化路径
     - appid：星火
-    - api_key：所有模型都需要
-    - api_secret：星火、百度文心
-    - embeddings：使用的embedding模型  
+    - api_key：星火、百度文心、OpenAI、智谱都需要传递的参数
+    - Spark_api_secret：星火秘钥
+    - Wenxin_secret_key：文心秘钥
+    - embeddings：使用的embedding模型
+    - embedding_key：使用的embedding模型的秘钥（智谱或者OpenAI）  
     """
-    def __init__(self,model:str, temperature:float=0.0, top_k:int=4, chat_history:list=[], file_path:str=None, persist_path:str=None, appid:str=None, api_key:str=None, api_secret:str=None, embedding = "openai",embedding_key:str=None):
+    def __init__(self,model:str, temperature:float=0.0, top_k:int=4, chat_history:list=[], file_path:str=None, persist_path:str=None, appid:str=None, api_key:str=None, Spark_api_secret:str=None,Wenxin_secret_key:str=None, embedding = "openai",embedding_key:str=None):
         self.model = model
         self.temperature = temperature
         self.top_k = top_k
@@ -34,7 +36,8 @@ class Chat_QA_chain_self:
         self.persist_path = persist_path
         self.appid = appid
         self.api_key = api_key
-        self.api_secret = api_secret
+        self.Spark_api_secret = Spark_api_secret
+        self.Wenxin_secret_key = Wenxin_secret_key
         self.embedding = embedding
         self.embedding_key = embedding_key
 
@@ -75,7 +78,7 @@ class Chat_QA_chain_self:
         if temperature == None:
             temperature = self.temperature
 
-        llm = model_to_llm(self.model, temperature, self.appid, self.api_key, self.api_secret)
+        llm = model_to_llm(self.model, temperature, self.appid, self.api_key, self.Spark_api_secret,self.Wenxin_secret_key)
 
         #self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
