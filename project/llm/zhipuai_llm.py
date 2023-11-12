@@ -161,8 +161,7 @@ class ZhipuAILLM(Self_LLM):
         params = self._convert_prompt_msg_params(prompt, **kwargs)
 
         response_payload = self.client.invoke(**params)
-
-        return response_payload["data"]["choices"][-1]["content"]
+        return response_payload["data"]["choices"][-1]["content"].strip('"').strip(" ")
 
     async def _acall(
         self,

@@ -15,7 +15,7 @@ from langchain.vectorstores import Chroma
 # 首先实现基本配置
 
 
-DEFAULT_DB_PATH = "../knowledge_base"
+DEFAULT_DB_PATH = "../../data_base/knowledge_db"
 DEFAULT_PERSIST_PATH = "../database/vector_data_base"
 
 
@@ -75,8 +75,9 @@ def create_db(files=DEFAULT_DB_PATH, persist_directory=DEFAULT_PERSIST_PATH, emb
     split_docs = text_splitter.split_documents(docs[:10])
 
     # 定义持久化路径
-    # persist_directory = '../knowledge_base/chroma'
-    embeddings = get_embedding(embedding=embeddings)
+    # persist_directory = '../../data_base/vector_db/chroma'
+    if type(embeddings) == str:
+        embeddings = get_embedding(embedding=embeddings)
 
     # 加载数据库
     vectordb = Chroma.from_documents(

@@ -22,6 +22,7 @@
     notebook：教程源码，可运行的 Notebook，更新频率最高，更新速度最快。
     docs：在线阅读版本，基于 notebook 源码订正。
     figures：图片文件。
+    data_base：知识库文件和持久化向量数据库的地址。
     project：个人知识库助手项目代码。
     requirements.txt：环境依赖，请务必使用一致的版本号，避免版本更新带来的影响。
 

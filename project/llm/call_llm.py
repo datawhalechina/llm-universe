@@ -28,6 +28,7 @@ from time import mktime
 from urllib.parse import urlencode
 from wsgiref.handlers import format_date_time
 import zhipuai
+from langchain.utils import get_from_dict_or_env
 
 import websocket  # 使用websocket_client
 
@@ -140,7 +141,7 @@ def get_completion_glm(prompt : str, model : str, temperature : float, api_key:s
         temperature = temperature,
         max_tokens=max_tokens
         )
-    return response["data"]["choices"][0]["content"]
+    return response["data"]["choices"][0]["content"].strip('"').strip(" ")
 
 # def getText(role, content, text = []):
 #     # role 是指定角色，content 是 prompt 内容
@@ -305,12 +306,13 @@ def parse_llm_api_key(model:str, env_file:dict()=None):
         _ = load_dotenv(find_dotenv())
         env_file = os.environ
     if model == "openai":
-        return env_file["openai_api_key"]
+        return env_file["OPENAI_API_KEY"]
     elif model == "wenxin":
         return env_file["wenxin_api_key"], env_file["wenxin_secret_key"]
     elif model == "spark":
         return env_file["spark_api_key"], env_file["spark_appid"], env_file["spark_api_secret"]
     elif model == "zhipuai":
-        return env_file["zhipuai_api_key"]
+        return get_from_dict_or_env(env_file, "zhipuai_api_key", "ZHIPUAI_API_KEY")
+        # return env_file["ZHIPUAI_API_KEY"]
     else:
         raise ValueError(f"model{model} not support!!!")

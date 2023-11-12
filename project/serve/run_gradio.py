@@ -1,4 +1,4 @@
-# 导入必要的库
+git# 导入必要的库
 
 import sys
 import os                # 用于操作系统相关的操作，例如读取环境变量
@@ -25,7 +25,7 @@ LLM_MODEL_DICT = {
     "openai": ["gpt-3.5-turbo", "gpt-3.5-turbo-16k-0613", "gpt-3.5-turbo-0613", "gpt-4", "gpt-4-32k"],
     "wenxin": ["ERNIE-Bot", "ERNIE-Bot-4", "ERNIE-Bot-turbo"],
     "xinhuo": ["Spark-1.5", "Spark-2.0"],
-    "zhipu": ["chatglm_pro", "chatglm_std", "chatglm_lite"]
+    "zhipuai": ["chatglm_pro", "chatglm_std", "chatglm_lite"]
 }
 
 
@@ -33,8 +33,10 @@ LLM_MODEL_LIST = sum(list(LLM_MODEL_DICT.values()),[])
 INIT_LLM = "chatglm_std"
 EMBEDDING_MODEL_LIST = ['zhipuai', 'openai', 'm3e']
 INIT_EMBEDDING_MODEL = "openai"
-DEFAULT_DB_PATH = "../knowledge_base"
-DEFAULT_PERSIST_PATH = "../database/vector_data_base"
+DEFAULT_DB_PATH = "../../data_base/knowledge_db"
+DEFAULT_PERSIST_PATH = "../../data_base/vector_db/chroma"
+LOGO_PATH = "../../figures/logo2.png"
+
 
 def get_model_by_platform(platform):
     return LLM_MODEL_DICT.get(platform, "")
@@ -134,19 +136,23 @@ def respond(message, chat_history, llm, history_len=3, temperature=0.1, max_toke
         # 返回一个空字符串和更新后的聊天历史记录（这里的空字符串可以替换为真正的机器人回复，如果需要显示在界面上）。
         return "", chat_history
     except Exception as e:
-        return "", chat_history
+        return e, chat_history
 
 
 model_center = Model_center()
 
 block = gr.Blocks()
 with block as demo:
-    gr.Markdown("""<h1><center>LLM-universe</center></h1>
-    <center>动手学大模型应用开发</center>
-    """)
+    with gr.Row(equal_height=True):   
+        with gr.Column(scale=15):
+            gr.Markdown("""<h1><center>动手学大模型应用开发</center></h1>
+                <center>LLM-UNIVERSE</center>
+                """)
+        # gr.Image(value=LOGO_PATH, scale=1, min_width=10,show_label=False, show_download_button=False)
+
     with gr.Row():
         with gr.Column(scale=4):
-            chatbot = gr.Chatbot(height=480, show_copy_button=True)
+            chatbot = gr.Chatbot(height=450, show_copy_button=True)
             # 创建一个文本框组件，用于输入 prompt。
             msg = gr.Textbox(label="Prompt/问题")
 
@@ -156,9 +162,9 @@ with block as demo:
                 db_wo_his_btn = gr.Button("Chat db without history")
                 llm_btn = gr.Button("Chat with llm")
             with gr.Row():
-                # 创建一个清除按钮，用于清除文本框和聊天机器人组件的内容。
+                # 创建一个清除按钮，用于清除聊天机器人组件的内容。
                 clear = gr.ClearButton(
-                    components=[msg, chatbot], value="Clear console")
+                    components=[chatbot], value="Clear console")
 
         with gr.Column(scale=1):
             file = gr.File(label='请选择知识库目录', file_count='directory',
@@ -169,7 +175,7 @@ with block as demo:
             with model_argument:
                 temperature = gr.Slider(0,
                                         1,
-                                        value=0.00,
+                                        value=0.01,
                                         step=0.01,
                                         label="llm temperature",
                                         interactive=True)
