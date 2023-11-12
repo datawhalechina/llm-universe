@@ -81,6 +81,7 @@ class Wenxin_LLM(Self_LLM):
         if response.status_code == 200:
             # 返回的是一个 Json 字符串
             js = json.loads(response.text)
+            # print(js)
             return js["result"]
         else:
             return "请求失败"

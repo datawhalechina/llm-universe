@@ -1,0 +1,8 @@
+openai==0.27.6
+zhipuai==1.0.7
+websocket-client==1.5.2
+langchain==0.0.292
+pydantic==1.10.10
+fastapi==0.85.1
+gradio==3.40.1
+python-dotenv==1.0.0
