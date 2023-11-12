@@ -11,7 +11,8 @@
     * [4. 调用讯飞星火](C2/4.%20调用讯飞星火.md)
     * [5. 调用智谱GLM](C2/5.%20调用智谱%20AI(ChatGLM).md)
     * [6. 调用智谱GLM Embedding](C2/6.%20调用智谱%20AI(ChatGLM)生成%20embedding.md)
-    * [7. 总结](C2/7.%20总结.md)
+    * [7. LangChain 组件详解](C2/7.%20langchain%20组件详解.md)
+    * [8. 总结](C2/8.%20总结.md)
     * [附1. LangChain自定义LLM](C2/附1.LangChain自定义%20LLM.md)
     * [附2. 将大模型API封装成本地API](C2/附2.将大模型%20API%20封装成本地%20API.md)
     * [附3. LangChain自定义Embedding](C2/附3.LangChain%20自定义%20LLM%20embedding.md)
@@ -32,5 +33,8 @@
     * [2. 解决Bad Case](C6/2.%20解决Bad%20Case.md)
     * [3. 大模型评估方法](C6/3.%20大模型评估方法.md)
     * 第七章 前后端搭建
-    * [1. Gradio 搭建界面](C7/1.%20Gradio%20的介绍与前端界面的搭建.md)
-    * [2. FastAPI 前后端分离](C7/2.%20fast%20api%20进行前后端分离.md)
+    * [1. 项目代码简析](C7/1.%20项目代码简析.md)
+    * [2. Gradio 搭建界面](C7/2.%20Gradio%20的介绍与前端界面的搭建.md)
+    * [3. FastAPI 前后端分离](C7/3.%20fast%20api%20进行前后端分离.md)
+    * 第八章 总结与拓展
+    * [写在最后](C8/1.%20总结与拓展.md)
