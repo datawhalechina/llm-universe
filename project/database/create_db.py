@@ -76,7 +76,8 @@ def create_db(files=DEFAULT_DB_PATH, persist_directory=DEFAULT_PERSIST_PATH, emb
 
     # 定义持久化路径
     # persist_directory = '../../data_base/vector_db/chroma'
-    embeddings = get_embedding(embedding=embeddings)
+    if type(embeddings) == str:
+        embeddings = get_embedding(embedding=embeddings)
 
     # 加载数据库
     vectordb = Chroma.from_documents(

@@ -1,4 +1,4 @@
-# 导入必要的库
+git# 导入必要的库
 
 import sys
 import os                # 用于操作系统相关的操作，例如读取环境变量
@@ -34,7 +34,7 @@ INIT_LLM = "chatglm_std"
 EMBEDDING_MODEL_LIST = ['zhipuai', 'openai', 'm3e']
 INIT_EMBEDDING_MODEL = "openai"
 DEFAULT_DB_PATH = "../../data_base/knowledge_db"
-DEFAULT_PERSIST_PATH = "../data_base/vector_db"
+DEFAULT_PERSIST_PATH = "../../data_base/vector_db/chroma"
 LOGO_PATH = "../../figures/logo2.png"
 
 
@@ -136,7 +136,7 @@ def respond(message, chat_history, llm, history_len=3, temperature=0.1, max_toke
         # 返回一个空字符串和更新后的聊天历史记录（这里的空字符串可以替换为真正的机器人回复，如果需要显示在界面上）。
         return "", chat_history
     except Exception as e:
-        return "", chat_history
+        return e, chat_history
 
 
 model_center = Model_center()
@@ -162,9 +162,9 @@ with block as demo:
                 db_wo_his_btn = gr.Button("Chat db without history")
                 llm_btn = gr.Button("Chat with llm")
             with gr.Row():
-                # 创建一个清除按钮，用于清除文本框和聊天机器人组件的内容。
+                # 创建一个清除按钮，用于清除聊天机器人组件的内容。
                 clear = gr.ClearButton(
-                    components=[msg, chatbot], value="Clear console")
+                    components=[chatbot], value="Clear console")
 
         with gr.Column(scale=1):
             file = gr.File(label='请选择知识库目录', file_count='directory',
@@ -175,7 +175,7 @@ with block as demo:
             with model_argument:
                 temperature = gr.Slider(0,
                                         1,
-                                        value=0.00,
+                                        value=0.01,
                                         step=0.01,
                                         label="llm temperature",
                                         interactive=True)
