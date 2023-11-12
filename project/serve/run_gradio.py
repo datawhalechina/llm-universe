@@ -25,7 +25,7 @@ LLM_MODEL_DICT = {
     "openai": ["gpt-3.5-turbo", "gpt-3.5-turbo-16k-0613", "gpt-3.5-turbo-0613", "gpt-4", "gpt-4-32k"],
     "wenxin": ["ERNIE-Bot", "ERNIE-Bot-4", "ERNIE-Bot-turbo"],
     "xinhuo": ["Spark-1.5", "Spark-2.0"],
-    "zhipu": ["chatglm_pro", "chatglm_std", "chatglm_lite"]
+    "zhipuai": ["chatglm_pro", "chatglm_std", "chatglm_lite"]
 }
 
 
@@ -33,8 +33,10 @@ LLM_MODEL_LIST = sum(list(LLM_MODEL_DICT.values()),[])
 INIT_LLM = "chatglm_std"
 EMBEDDING_MODEL_LIST = ['zhipuai', 'openai', 'm3e']
 INIT_EMBEDDING_MODEL = "openai"
-DEFAULT_DB_PATH = "../knowledge_base"
-DEFAULT_PERSIST_PATH = "../database/vector_data_base"
+DEFAULT_DB_PATH = "../../data_base/knowledge_db"
+DEFAULT_PERSIST_PATH = "../data_base/vector_db"
+LOGO_PATH = "../../figures/logo2.png"
+
 
 def get_model_by_platform(platform):
     return LLM_MODEL_DICT.get(platform, "")
@@ -141,12 +143,16 @@ model_center = Model_center()
 
 block = gr.Blocks()
 with block as demo:
-    gr.Markdown("""<h1><center>LLM-universe</center></h1>
-    <center>动手学大模型应用开发</center>
-    """)
+    with gr.Row(equal_height=True):   
+        with gr.Column(scale=15):
+            gr.Markdown("""<h1><center>动手学大模型应用开发</center></h1>
+                <center>LLM-UNIVERSE</center>
+                """)
+        # gr.Image(value=LOGO_PATH, scale=1, min_width=10,show_label=False, show_download_button=False)
+
     with gr.Row():
         with gr.Column(scale=4):
-            chatbot = gr.Chatbot(height=480, show_copy_button=True)
+            chatbot = gr.Chatbot(height=450, show_copy_button=True)
             # 创建一个文本框组件，用于输入 prompt。
             msg = gr.Textbox(label="Prompt/问题")
 

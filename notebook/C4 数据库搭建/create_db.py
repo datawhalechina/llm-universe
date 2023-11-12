@@ -24,14 +24,14 @@ openai.api_key  = os.environ['OPENAI_API_KEY']
 #pdf
 # 加载 PDF
 loaders = [
-    PyMuPDFLoader("../knowledge_base/pumkin_book/pumpkin_book.pdf") # 机器学习,
+    PyMuPDFLoader("../../data_base/knowledge_db/pumkin_book/pumpkin_book.pdf") # 机器学习,
 ]
 docs = []
 for loader in loaders:
     docs.extend(loader.load())
 
 #md
-folder_path = "../knowledge_base/prompt_engineering/"
+folder_path = "../../data_base/knowledge_db/prompt_engineering/"
 files = os.listdir(folder_path)
 loaders = []
 for one_file in files:
@@ -42,7 +42,7 @@ for loader in loaders:
 
 #mp4-txt
 loaders = [
-    UnstructuredFileLoader("../knowledge_base/easy_rl/强化学习入门指南.txt") # 机器学习,
+    UnstructuredFileLoader("../../data_base/knowledge_db/easy_rl/强化学习入门指南.txt") # 机器学习,
 ]
 for loader in loaders:
     docs.extend(loader.load())
@@ -56,7 +56,7 @@ split_docs = text_splitter.split_documents(docs)
 embedding = OpenAIEmbeddings() 
 
 # 定义持久化路径
-persist_directory = '../knowledge_base/chroma'
+persist_directory = '../../data_base/vector_db/chroma'
 
 # 加载数据库
 vectordb = Chroma.from_documents(

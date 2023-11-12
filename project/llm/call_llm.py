@@ -305,7 +305,7 @@ def parse_llm_api_key(model:str, env_file:dict()=None):
         _ = load_dotenv(find_dotenv())
         env_file = os.environ
     if model == "openai":
-        return env_file["openai_api_key"]
+        return env_file["OPENAI_API_KEY"]
     elif model == "wenxin":
         return env_file["wenxin_api_key"], env_file["wenxin_secret_key"]
     elif model == "spark":
