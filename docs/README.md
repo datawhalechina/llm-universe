@@ -43,7 +43,11 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 
 本项目对学习者的人工智能基础、算法基础没有任何要求，仅需要掌握基本 Python 语法、掌握初级 Python 开发技能即可。
 
+### 环境要求
+
 本项目对本地硬件基本没有要求，不需要 GPU 环境，个人电脑及服务器均可用于学习。
+
+**建议从项目首页获取 [requirements.txt](https://github.com/datawhalechina/llm-universe/blob/main/requirements.txt)，使用该文件来创建 Python 版本。**
 
 **Python 环境版本**
 
@@ -56,6 +60,10 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
     gradio==3.40.1
     python-dotenv==1.0.0
     chromadb==0.3.29
+    pymupdf==1.23.6
+    markdown==3.4.3
+    unstructured==0.9.0
+    scikit-learn==1.2.2
 
 ## 项目亮点
 
