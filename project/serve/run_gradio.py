@@ -1,4 +1,4 @@
-git# 导入必要的库
+# 导入必要的库
 
 import sys
 import os                # 用于操作系统相关的操作，例如读取环境变量
@@ -55,6 +55,8 @@ class Model_center():
         """
         调用带历史记录的问答链进行回答
         """
+        if question == null or len(question) < 1:
+            return "", chat_history
         try:
             if (model, embedding) not in self.chat_qa_chain_self:
                 self.chat_qa_chain_self[(model, embedding)] = Chat_QA_chain_self(model=model, temperature=temperature,
@@ -68,6 +70,8 @@ class Model_center():
         """
         调用不带历史记录的问答链进行回答
         """
+        if question == null or len(question) < 1:
+            return "", chat_history
         try:
             if (model, embedding) not in self.qa_chain_self:
                 self.qa_chain_self[(model, embedding)] = QA_chain_self(model=model, temperature=temperature,
@@ -123,6 +127,8 @@ def respond(message, chat_history, llm, history_len=3, temperature=0.1, max_toke
     "": 空字符串表示没有内容需要显示在界面上，可以替换为真正的机器人回复。
     chat_history: 更新后的聊天历史记录
     """
+    if question == null or len(question) < 1:
+            return "", chat_history
     try:
         # 限制 history 的记忆长度
         chat_history = chat_history[-history_len:] if history_len > 0 else []
