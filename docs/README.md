@@ -55,6 +55,7 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
     fastapi==0.85.1
     gradio==3.40.1
     python-dotenv==1.0.0
+    chromadb==0.3.29
 
 ## 项目亮点
 

@@ -6,3 +6,4 @@ pydantic==1.10.10
 fastapi==0.85.1
 gradio==3.40.1
 python-dotenv==1.0.0
+chromadb==0.3.29
