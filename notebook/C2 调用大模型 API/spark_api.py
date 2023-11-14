@@ -44,9 +44,9 @@ def getText(role, content, text = []):
 def get_spark(item):
     # 配置 spark 秘钥
     #以下密钥信息从控制台获取
-    appid = "9f922c84"     #填写控制台中获取的 APPID 信息
-    api_secret = "YjU0ODk4MWQ4NTgyNDU5MzNiNWQzZmZm"   #填写控制台中获取的 APISecret 信息
-    api_key ="5d4e6e41f6453936ccc34dd524904324"    #填写控制台中获取的 APIKey 信息
+    appid = "xxx"     #填写控制台中获取的 APPID 信息
+    api_secret = "xxx"   #填写控制台中获取的 APISecret 信息
+    api_key ="xxx"    #填写控制台中获取的 APIKey 信息
     domain = "generalv2"    # v2.0版本
     Spark_url = "ws://spark-api.xf-yun.com/v2.1/chat"  # v2.0环境的地址
 
