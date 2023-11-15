@@ -149,6 +149,7 @@ vs2015_runtime==14.27.29016
 wcwidth==0.2.10
 websocket==0.2.1
 websockets==11.0.3
+websocket-client==0.57.0
 wheel==0.41.2
 yarl==1.9.2
 zeromq==4.3.4
