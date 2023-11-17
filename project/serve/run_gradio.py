@@ -35,7 +35,10 @@ EMBEDDING_MODEL_LIST = ['zhipuai', 'openai', 'm3e']
 INIT_EMBEDDING_MODEL = "openai"
 DEFAULT_DB_PATH = "../../data_base/knowledge_db"
 DEFAULT_PERSIST_PATH = "../../data_base/vector_db/chroma"
-LOGO_PATH = "../../figures/logo2.png"
+AIGC_AVATAR_PATH = "aigc_avatar.png"
+DATAWHALE_AVATAR_PATH = "datawhale_avatar.png"
+AIGC_LOGO_PATH = "../../figures/aigc_logo.png"
+DATAWHALE_LOGO_PATH = "../../figures/datawhale_logo.png"
 
 
 def get_model_by_platform(platform):
@@ -55,7 +58,7 @@ class Model_center():
         """
         调用带历史记录的问答链进行回答
         """
-        if question == null or len(question) < 1:
+        if question == None or len(question) < 1:
             return "", chat_history
         try:
             if (model, embedding) not in self.chat_qa_chain_self:
@@ -70,7 +73,7 @@ class Model_center():
         """
         调用不带历史记录的问答链进行回答
         """
-        if question == null or len(question) < 1:
+        if question == None or len(question) < 1:
             return "", chat_history
         try:
             if (model, embedding) not in self.qa_chain_self:
@@ -127,7 +130,7 @@ def respond(message, chat_history, llm, history_len=3, temperature=0.1, max_toke
     "": 空字符串表示没有内容需要显示在界面上，可以替换为真正的机器人回复。
     chat_history: 更新后的聊天历史记录
     """
-    if question == null or len(question) < 1:
+    if message == None or len(message) < 1:
             return "", chat_history
     try:
         # 限制 history 的记忆长度
@@ -149,16 +152,18 @@ model_center = Model_center()
 
 block = gr.Blocks()
 with block as demo:
-    with gr.Row(equal_height=True):   
-        with gr.Column(scale=15):
+    with gr.Row(equal_height=True):           
+        gr.Image(value=AIGC_LOGO_PATH, scale=1, min_width=10, show_label=False, show_download_button=False, container=False)
+   
+        with gr.Column(scale=2):
             gr.Markdown("""<h1><center>动手学大模型应用开发</center></h1>
                 <center>LLM-UNIVERSE</center>
                 """)
-        # gr.Image(value=LOGO_PATH, scale=1, min_width=10,show_label=False, show_download_button=False)
+        gr.Image(value=DATAWHALE_LOGO_PATH, scale=1, min_width=10, show_label=False, show_download_button=False, container=False)
 
     with gr.Row():
         with gr.Column(scale=4):
-            chatbot = gr.Chatbot(height=450, show_copy_button=True)
+            chatbot = gr.Chatbot(height=400, show_copy_button=True, show_share_button=True, avatar_images=(AIGC_AVATAR_PATH, DATAWHALE_AVATAR_PATH))
             # 创建一个文本框组件，用于输入 prompt。
             msg = gr.Textbox(label="Prompt/问题")
 
