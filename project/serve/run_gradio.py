@@ -31,7 +31,7 @@ LLM_MODEL_DICT = {
 
 LLM_MODEL_LIST = sum(list(LLM_MODEL_DICT.values()),[])
 INIT_LLM = "chatglm_std"
-EMBEDDING_MODEL_LIST = ['zhipuai', 'openai', 'm3e']
+EMBEDDING_MODEL_LIST = ['zhipuai', 'openai', 'm3e', 'text-embedding-v1(dashscope)', 'text-embedding-v2(dashscope)', "Embedding-V1(qianfan)", "bge-large-en", "bge-large-zh"]
 INIT_EMBEDDING_MODEL = "openai"
 DEFAULT_DB_PATH = "../../data_base/knowledge_db"
 DEFAULT_PERSIST_PATH = "../../data_base/vector_db/chroma"
@@ -54,7 +54,7 @@ class Model_center():
         self.chat_qa_chain_self = {}
         self.qa_chain_self = {}
 
-    def chat_qa_chain_self_answer(self, question: str, chat_history: list = [], model: str = "openai", embedding: str = "openai", temperature: float = 0.0, top_k: int = 4, history_len: int = 3, file_path: str = DEFAULT_DB_PATH, persist_path: str = DEFAULT_PERSIST_PATH):
+    def chat_qa_chain_self_answer(self, question: str, chat_history: list = [], model: str = "zhipuai", embedding: str = "zhipuai", temperature: float = 0.0, top_k: int = 4, history_len: int = 3, file_path: str = DEFAULT_DB_PATH, persist_path: str = DEFAULT_PERSIST_PATH):
         """
         调用带历史记录的问答链进行回答
         """
@@ -69,7 +69,7 @@ class Model_center():
         except Exception as e:
             return e, chat_history
 
-    def qa_chain_self_answer(self, question: str, chat_history: list = [], model: str = "openai", embedding="openai", temperature: float = 0.0, top_k: int = 4, file_path: str = DEFAULT_DB_PATH, persist_path: str = DEFAULT_PERSIST_PATH):
+    def qa_chain_self_answer(self, question: str, chat_history: list = [], model: str = "zhipuai", embedding: str = "zhipuai", temperature: float = 0.0, top_k: int = 4, file_path: str = DEFAULT_DB_PATH, persist_path: str = DEFAULT_PERSIST_PATH):
         """
         调用不带历史记录的问答链进行回答
         """
