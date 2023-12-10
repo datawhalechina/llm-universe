@@ -60,6 +60,15 @@ class Spark_LLM(Self_LLM):
             # 三个 Key 均存在才可以正常调用
             print("请填入 Key")
             raise ValueError("Key 不存在")
+
+         # 配置 2 和 3 的不同环境
+        if self.model == "Spark-2.0":
+            self.domain = "generalv2"    # v2.0版本
+            self.url = "ws://spark-api.xf-yun.com/v2.1/chat"  # v2.0环境的地址
+        elif self.model == "Spark-3.0":
+            self.domain = "generalv3"    # v3.0版本
+            self.url = "ws://spark-api.xf-yun.com/v3.1/chat"  # v3.0环境的地址
+
         # 将 Prompt 填充到星火格式
         question = self.getText("user", prompt)
         # 发起请求

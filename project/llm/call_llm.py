@@ -48,7 +48,7 @@ def get_completion(prompt :str, model :str, temperature=0.1,api_key=None, secret
         return get_completion_gpt(prompt, model, temperature, api_key, max_tokens)
     elif model in ["ERNIE-Bot", "ERNIE-Bot-4", "ERNIE-Bot-turbo"]:
         return get_completion_wenxin(prompt, model, temperature, api_key, secret_key)
-    elif model in ["Spark-1.5", "Spark-2.0"]:
+    elif model in ["Spark-1.5", "Spark-2.0", "Spark-3.0"]:
         return get_completion_spark(prompt, model, temperature, api_key, appid, api_secret, max_tokens)
     elif model in ["chatglm_turbo"]:
         return get_completion_glm(prompt, model, temperature, api_key, max_tokens)
@@ -121,9 +121,12 @@ def get_completion_spark(prompt : str, model : str, temperature : float, api_key
     if model == "Spark-1.5":
         domain = "general"  
         Spark_url = "ws://spark-api.xf-yun.com/v1.1/chat"  # v1.5环境的地址
-    else:
+    elif model == "Spark-2.0":
         domain = "generalv2"    # v2.0版本
         Spark_url = "ws://spark-api.xf-yun.com/v2.1/chat"  # v2.0环境的地址
+    else:
+        domain = "generalv3"    # v3.0版本
+        Spark_url = "ws://spark-api.xf-yun.com/v3.1/chat"  # v3.0环境的地址
 
     question = [{"role":"user", "content":prompt}]
     response = spark_main(appid,api_key,api_secret,Spark_url,domain,question,temperature, max_tokens)

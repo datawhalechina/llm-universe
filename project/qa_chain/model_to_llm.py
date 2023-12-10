@@ -22,7 +22,7 @@ def model_to_llm(model:str=None, temperature:float=0.0, appid:str=None, api_key:
             if api_key == None or Wenxin_secret_key == None:
                 api_key, Wenxin_secret_key = parse_llm_api_key("wenxin")
             llm = Wenxin_LLM(model=model, temperature = temperature, api_key=api_key, secret_key=Wenxin_secret_key)
-        elif model in ["Spark-1.5", "Spark-2.0"]:
+        elif model in ["Spark-1.5", "Spark-2.0", "Spark-3.0"]:
             if api_key == None or appid == None and Spark_api_secret == None:
                 api_key, appid, Spark_api_secret = parse_llm_api_key("spark")
             llm = Spark_LLM(model=model, temperature = temperature, appid=appid, api_secret=Spark_api_secret, api_key=api_key)
