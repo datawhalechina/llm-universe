@@ -36,7 +36,7 @@ class ZhipuAILLM(LLM):
         .. code-block:: python
 
             from langchain.llms import ZhipuAILLM
-            zhipuai_model = ZhipuAILLM(model="chatglm_std", temperature=temperature)
+            zhipuai_model = ZhipuAILLM(model="chatglm_turbo", temperature=temperature)
 
     """
 
@@ -44,8 +44,7 @@ class ZhipuAILLM(LLM):
 
     client: Any
 
-    model: str = "chatglm_std"
-    """Model name in chatglm_pro, chatglm_std, chatglm_lite. """
+    model: str = "chatglm_turbo"
 
     zhipuai_api_key: Optional[str] = None
 

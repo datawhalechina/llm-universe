@@ -57,8 +57,7 @@ class ZhipuAILLM(Self_LLM):
 
     client: Any
 
-    model: str = "chatglm_std"
-    """Model name in chatglm_pro, chatglm_std, chatglm_lite. """
+    model: str = "chatglm_turbo"
 
     zhipuai_api_key: Optional[str] = None
 
