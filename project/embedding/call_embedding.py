@@ -7,7 +7,7 @@ from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.embeddings.dashscope import DashScopeEmbeddings
 from langchain.embeddings.baidu_qianfan_endpoint import QianfanEmbeddingsEndpoint
-from llm.call_llm import parse_llm_api_key
+from llm.parse_api import parse_llm_api_key
 
 def get_embedding(embedding: str, embedding_key: str=None, env_file: str=None):
     if embedding == "openai":
