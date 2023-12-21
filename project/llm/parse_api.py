@@ -41,7 +41,7 @@ def get_from_dict_or_env(
         elif key.lower() in data and data[key.lower()]:
             return data[key.lower()]
     else:
-        return get_from_env(key, env_key, default=default)
+        return get_from_env(key, env_key, default=default, uniform=uniform)
 
 
 def get_from_env(key: str, env_key: str, default: Optional[str] = None, uniform: bool = True) -> str:
