@@ -28,8 +28,8 @@ from time import mktime
 from urllib.parse import urlencode
 from wsgiref.handlers import format_date_time
 import zhipuai
-from langchain.utils import get_from_dict_or_env
 import qianfan
+from llm.parse_api import parse_llm_api_key
 
 import websocket  # 使用websocket_client
 
