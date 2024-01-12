@@ -155,3 +155,4 @@ yarl==1.9.2
 zhipuai==1.0.7
 zipp==3.11.0
 zstandard==0.22.0
+qianfan==0.2.7

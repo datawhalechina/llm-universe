@@ -29,6 +29,8 @@ from urllib.parse import urlencode
 from wsgiref.handlers import format_date_time
 import zhipuai
 import qianfan
+from langchain.utils import get_from_dict_or_env
+
 from llm.parse_api import parse_llm_api_key
 
 import websocket  # 使用websocket_client
@@ -51,7 +53,7 @@ def get_completion(prompt :str, model :str, temperature=0.1,api_key=None, secret
         return get_completion_wenxin(prompt, model, temperature, api_key, secret_key)
     elif model in ["Spark-1.5", "Spark-2.0", "Spark-3.0"]:
         return get_completion_spark(prompt, model, temperature, api_key, appid, api_secret, max_tokens)
-    elif model in ["chatglm_turbo"]:
+    elif model in ["chatglm_turbo", "chatglm_pro", "chatglm_std", "chatglm_lite"]:
         return get_completion_glm(prompt, model, temperature, api_key, max_tokens)
     else:
         return "不正确的模型"

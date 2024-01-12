@@ -49,7 +49,7 @@ class ZhipuAILLM(Self_LLM):
         .. code-block:: python
 
             from langchain.llms import ZhipuAILLM
-            zhipuai_model = ZhipuAILLM(model="chatglm_std", temperature=temperature)
+            zhipuai_model = ZhipuAILLM(model="chatglm_turbo", temperature=temperature)
 
     """
 
