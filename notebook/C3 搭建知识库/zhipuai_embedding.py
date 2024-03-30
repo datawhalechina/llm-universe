@@ -1,30 +1,33 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Dict, List, Any
 
-from zhipuai import ZhipuAI
+
 from langchain.embeddings.base import Embeddings
 from langchain.pydantic_v1 import BaseModel, root_validator
 
 logger = logging.getLogger(__name__)
 
 class ZhipuAIEmbeddings(BaseModel, Embeddings):
+    """`Zhipuai Embeddings` embedding models."""
+
+    client: Any
+    """`zhipuai.ZhipuAI"""
 
     @root_validator()
     def validate_environment(cls, values: Dict) -> Dict:
         """
-        通过环境变量获取values["zhipuai_api_key"]
-        通过values["zhipuai_api_key"]实例化ZhipuAI为values["client"]
+        实例化ZhipuAI为values["client"]
 
         Args:
 
-            values (Dict): 包含配置信息的字典，必须包含 zhipuai_api_key 的字段
+            values (Dict): 包含配置信息的字典，必须包含 client 的字段.
         Returns:
 
-            values (Dict): 包含配置信息的字典。如果环境变量或配置文件中未提供 zhipuai_api_key，则将返回原始值；否则将返回包含 zhipuai_api_key 的值。
+            values (Dict): 包含配置信息的字典。如果环境中有zhipuai库，则将返回实例化的ZhipuAI类；否则将报错 'ModuleNotFoundError: No module named 'zhipuai''.
         """
-
+        from zhipuai import ZhipuAI
         values["client"] = ZhipuAI()
         return values
     
@@ -34,23 +37,11 @@ class ZhipuAIEmbeddings(BaseModel, Embeddings):
             input=texts
         )
         return embeddings.data[0].embedding
-
-    def embed_query(self, text: str) -> List[float]:
-        """
-        生成输入文本的 embedding。
-
-        Args:
-            texts (str): 要生成 embedding 的文本。
-
-        Return:
-            embeddings (List[float]): 输入文本的 embedding，一个浮点数值列表。
-        """
-        resp = self.embed_documents([text])
-        return resp[0]
+    
 
     def embed_documents(self, texts: List[str]) -> List[List[float]]:
         """
-        生成输入文本列表的 embedding。
+        生成输入文本列表的 embedding.
         Args:
             texts (List[str]): 要生成 embedding 的文本列表.
 
@@ -58,6 +49,22 @@ class ZhipuAIEmbeddings(BaseModel, Embeddings):
             List[List[float]]: 输入列表中每个文档的 embedding 列表。每个 embedding 都表示为一个浮点值列表。
         """
         return [self._embed(text) for text in texts]
+    
+    
+    def embed_query(self, text: str) -> List[float]:
+        """
+        生成输入文本的 embedding.
+
+        Args:
+            texts (str): 要生成 embedding 的文本.
+
+        Return:
+            embeddings (List[float]): 输入文本的 embedding，一个浮点数值列表.
+        """
+        resp = self.embed_documents([text])
+        return resp[0]
+
+
 
     async def aembed_documents(self, texts: List[str]) -> List[List[float]]:
         """Asynchronous Embed search docs."""
