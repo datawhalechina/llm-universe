@@ -3,6 +3,9 @@ gradio==4.20.0
 huggingface_hub==0.21.3
 ipython==8.22.2
 langchain==0.1.11
+langchain-community==0.0.29
+langchain-core==0.1.36
+langchain-openai==0.1.1
 nltk==3.8.1
 openai==1.13.3
 pip==23.3.1
