@@ -25,7 +25,6 @@
 **目录结构说明：**
 
       requirements.txt：官方环境下的安装依赖
-      requirements_windows: Windows 环境下的安装依赖
       notebook：Notebook 源代码文件
       docs：Markdown 文档文件
       figures：图片
