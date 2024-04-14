@@ -8,24 +8,23 @@
 
 本项目是一个面向小白开发者的大模型应用开发教程，旨在基于阿里云服务器，结合个人知识库助手项目，通过一个课程完成大模型开发的重点入门，主要内容包括：
 
-1. 大模型简介，何为大模型、大模型特点是什么、LangChain 是什么，如何开发一个 LLM 应用，针对小白开发者的简单介绍；
-2. 如何调用大模型 API，本节介绍了国内外知名大模型产品 API 的多种调用方式，包括调用原生 API、封装为 LangChain LLM、封装为 Fastapi 等调用方式，同时将包括百度文心、讯飞星火、智谱AI等多种大模型 API 进行了统一形式封装；
-3. 知识库搭建，不同类型知识库文档的加载、处理，向量数据库的搭建；
-4. 构建 RAG 应用，包括将 LLM 接入到 LangChain 构建检索问答链，使用 Streamlit 进行应用部署
-5. 验证迭代，大模型开发如何实现验证迭代，一般的评估方法有什么；
+1. **大模型简介**，何为大模型、大模型特点是什么、LangChain 是什么，如何开发一个 LLM 应用，针对小白开发者的简单介绍；
+2. **如何调用大模型 API**，本节介绍了国内外知名大模型产品 API 的多种调用方式，包括调用原生 API、封装为 LangChain LLM、封装为 Fastapi 等调用方式，同时将包括百度文心、讯飞星火、智谱AI等多种大模型 API 进行了统一形式封装；
+3. **知识库搭建**，不同类型知识库文档的加载、处理，向量数据库的搭建；
+4. **构建 RAG 应用**，包括将 LLM 接入到 LangChain 构建检索问答链，使用 Streamlit 进行应用部署
+5. **验证迭代**，大模型开发如何实现验证迭代，一般的评估方法有什么；
 
 本项目主要包括三部分内容：
 
-1. LLM 开发入门。V1 版本的简化版，旨在帮助初学者最快、最便捷地入门 LLM 开发，理解 LLM 开发的一般流程，可以搭建出一个简单的 Demo。
-2. LLM 开发技巧。LLM 开发更进阶的技巧，包括但不限于：Prompt Engineering、多类型源数据的处理、优化检索、召回精排、Agent 框架等
-3. LLM 应用实例。引入一些成功的开源案例，从本课程的角度出发，解析这些应用范例的 Idea、核心思路、实现框架，帮助初学者明白其可以通过 LLM 开发什么样的应用。
+1. **LLM 开发入门**。V1 版本的简化版，旨在帮助初学者最快、最便捷地入门 LLM 开发，理解 LLM 开发的一般流程，可以搭建出一个简单的 Demo。
+2. **LLM 开发技巧**。LLM 开发更进阶的技巧，包括但不限于：Prompt Engineering、多类型源数据的处理、优化检索、召回精排、Agent 框架等
+3. **LLM 应用实例**。引入一些成功的开源案例，从本课程的角度出发，解析这些应用范例的 Idea、核心思路、实现框架，帮助初学者明白其可以通过 LLM 开发什么样的应用。
 
 目前，第一部分已经完稿，欢迎大家阅读学习；第二、三部分正在创作中。
 
 **目录结构说明：**
 
       requirements.txt：官方环境下的安装依赖
-      requirements_windows: Windows 环境下的安装依赖
       notebook：Notebook 源代码文件
       docs：Markdown 文档文件
       figures：图片
@@ -61,45 +60,46 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 
 ## 在线阅读地址
 
-新版暂未发布
+[https://datawhalechina.github.io/llm-universe/](https://datawhalechina.github.io/llm-universe/)
 
 ## 内容大纲
 
-### 第一部分 LLM 开发入门 
+### 第一部分 LLM 开发入门
 
 负责人：邹雨衡
 
-1. LLM 介绍 @高立业
-   1. LLM 的理论介绍
-   2. 什么是 RAG，RAG 的核心优势
-   3. 什么是 LangChain 
-   4. 开发 LLM 应用的整体流程
-   5. 阿里云服务器的基本使用
-   6. 环境配置
-2. 使用 LLM API 开发应用 @毛雨
-   1. 使用 LLM API
+1. [LLM 介绍](./notebook/C1%20大型语言模型%20LLM%20介绍/) @高立业
+   1. [LLM 的理论介绍](./notebook/C1%20大型语言模型%20LLM%20介绍/1.大型语言模型%20LLM%20理论简介.md)
+   2. [什么是 RAG，RAG 的核心优势](./notebook/C1%20大型语言模型%20LLM%20介绍/2.检索增强生成%20RAG%20简介.md)
+   3. [什么是 LangChain](./notebook/C1%20大型语言模型%20LLM%20介绍/3.LangChain%20简介.md)
+   4. [开发 LLM 应用的整体流程](./notebook/C1%20大型语言模型%20LLM%20介绍/4.开发%20LLM%20应用的整体流程.md)
+   5. [阿里云服务器的基本使用](./notebook/C1%20大型语言模型%20LLM%20介绍/5.阿里云服务器的基本使用.md)
+   6. [环境配置](./notebook/C1%20大型语言模型%20LLM%20介绍/6.环境配置.md)
+2. [使用 LLM API 开发应用](./notebook/C2%20使用%20LLM%20API%20开发应用/) @毛雨
+   1. [基本概念](./notebook/C2%20使用%20LLM%20API%20开发应用/1.%20基本概念.md)
+   2. [使用 LLM API](./notebook/C2%20使用%20LLM%20API%20开发应用/2.%20使用%20LLM%20API.ipynb)
         - ChatGPT
         - 文心一言
         - 讯飞星火
         - 智谱 GLM
-   2. Prompt Engineering
-3. 搭建知识库 @娄天奥
-   1. 词向量及向量知识库介绍
-   2. 使用 Embedding API
-   3. 数据处理：读取、清洗与切片
-   4. 搭建并使用向量数据库
-4. 构建 RAG 应用 @徐虎
-   1. 将 LLM 接入 LangChain
+   3. [Prompt Engineering](./notebook/C2%20使用%20LLM%20API%20开发应用/3.%20Prompt%20Engineering.ipynb)
+3. [搭建知识库](./notebook/C3%20搭建知识库/) @娄天奥
+   1. [词向量及向量知识库介绍](./notebook/C3%20搭建知识库/1.词向量及向量知识库介绍.md)
+   2. [使用 Embedding API](./notebook/C3%20搭建知识库/2.使用%20Embedding%20API.ipynb)
+   3. [数据处理：读取、清洗与切片](./notebook/C3%20搭建知识库/3.数据处理.ipynb)
+   4. [搭建并使用向量数据库](./notebook/C3%20搭建知识库/4.搭建并使用向量数据库.ipynb)
+4. [构建 RAG 应用](./notebook/C4%20构建%20RAG%20应用/) @徐虎
+   1. [将 LLM 接入 LangChain](./notebook/C4%20构建%20RAG%20应用/1.LLM%20接入%20LangChain.ipynb)
         - ChatGPT
         - 文心一言
         - 讯飞星火
         - 智谱 GLM
-   2. 基于 LangChain 搭建检索问答链
-   3. 基于 Streamlit 部署知识库助手
-5. 系统评估与优化 @邹雨衡
-   1. 如何评估 LLM 应用
-   2. 评估并优化生成部分
-   3. 评估并优化检索部分
+   2. [基于 LangChain 搭建检索问答链](./notebook/C4%20构建%20RAG%20应用/2.构建检索问答链.ipynb)
+   3. [基于 Streamlit 部署知识库助手](./notebook/C4%20构建%20RAG%20应用/3.部署知识库助手.ipynb)
+5. [系统评估与优化](./notebook/C5%20系统评估与优化/) @邹雨衡
+   1. [如何评估 LLM 应用](./notebook/C5%20系统评估与优化/1.如何评估%20LLM%20应用.ipynb)
+   2. [评估并优化生成部分](./notebook/C5%20系统评估与优化/2.评估并优化生成部分.ipynb)
+   3. [评估并优化检索部分](./notebook/C5%20系统评估与优化/3.评估并优化检索部分.md)
 
 ### 第二部分 进阶 RAG 技巧（正在创作）
 
@@ -169,5 +169,3 @@ Made with [contrib.rocks](https://contrib.rocks).
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=datawhalechina/llm-universe&type=Date)](https://star-history.com/#datawhalechina/llm-universe&Date)
-
-
