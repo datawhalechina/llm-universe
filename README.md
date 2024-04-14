@@ -62,6 +62,10 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 
 [https://datawhalechina.github.io/llm-universe/](https://datawhalechina.github.io/llm-universe/)
 
+## PDF 地址
+
+[https://github.com/datawhalechina/llm-universe/releases/tag/v1](https://github.com/datawhalechina/llm-universe/releases/tag/v1)
+
 ## 内容大纲
 
 ### 第一部分 LLM 开发入门
