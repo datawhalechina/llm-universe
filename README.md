@@ -60,7 +60,7 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 
 ## 在线阅读地址
 
-新版暂未发布
+[https://datawhalechina.github.io/llm-universe/](https://datawhalechina.github.io/llm-universe/)
 
 ## 内容大纲
 
