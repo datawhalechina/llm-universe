@@ -62,6 +62,10 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 
 [https://datawhalechina.github.io/llm-universe/](https://datawhalechina.github.io/llm-universe/)
 
+## PDF 地址
+
+[https://github.com/datawhalechina/llm-universe/releases/tag/v1](https://github.com/datawhalechina/llm-universe/releases/tag/v1)
+
 ## 内容大纲
 
 ### 第一部分 LLM 开发入门
@@ -74,7 +78,8 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
    3. [什么是 LangChain](./notebook/C1%20大型语言模型%20LLM%20介绍/3.LangChain%20简介.md)
    4. [开发 LLM 应用的整体流程](./notebook/C1%20大型语言模型%20LLM%20介绍/4.开发%20LLM%20应用的整体流程.md)
    5. [阿里云服务器的基本使用](./notebook/C1%20大型语言模型%20LLM%20介绍/5.阿里云服务器的基本使用.md)
-   6. [环境配置](./notebook/C1%20大型语言模型%20LLM%20介绍/6.环境配置.md)
+   6. [GitHub Codespaces 的基本使用（选修）](./notebook/C1%20大型语言模型%20LLM%20介绍/6.GitHub%20Codespaces%20的基本使用（选修）.md)
+   7. [环境配置](./notebook/C1%20大型语言模型%20LLM%20介绍/7.环境配置.md)
 2. [使用 LLM API 开发应用](./notebook/C2%20使用%20LLM%20API%20开发应用/) @毛雨
    1. [基本概念](./notebook/C2%20使用%20LLM%20API%20开发应用/1.%20基本概念.md)
    2. [使用 LLM API](./notebook/C2%20使用%20LLM%20API%20开发应用/2.%20使用%20LLM%20API.ipynb)
