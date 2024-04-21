@@ -19,7 +19,7 @@
         - [4. 搭建并使用向量数据库](C3/4.搭建并使用向量数据库.md)
         - [附. LangChain 自定义 Embedding 讲解](C3/附LangChain自定义Embedding封装讲解.md)
     - 第四章 构建 RAG 应用
-        - [1. LLM 接入 LangChian](C4/1.LLM接入LangChain.md)
+        - [1. LLM 接入 LangChain](C4/1.LLM%20接入%20LangChain.md)
         - [2. 构建检索问答链](C4/2.构建检索问答链.md)
         - [3. 部署知识库助手](C4/3.部署知识库助手.md)
     - 第五章 系统评估与优化
