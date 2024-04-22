@@ -31,26 +31,6 @@ class ZhipuAIEmbeddings(BaseModel, Embeddings):
         values["client"] = ZhipuAI()
         return values
     
-    def _embed(self, texts: str) -> List[float]:
-        embeddings = self.client.embeddings.create(
-            model="embedding-2",
-            input=texts
-        )
-        return embeddings.data[0].embedding
-    
-
-    def embed_documents(self, texts: List[str]) -> List[List[float]]:
-        """
-        生成输入文本列表的 embedding.
-        Args:
-            texts (List[str]): 要生成 embedding 的文本列表.
-
-        Returns:
-            List[List[float]]: 输入列表中每个文档的 embedding 列表。每个 embedding 都表示为一个浮点值列表。
-        """
-        return [self._embed(text) for text in texts]
-    
-    
     def embed_query(self, text: str) -> List[float]:
         """
         生成输入文本的 embedding.
@@ -61,11 +41,24 @@ class ZhipuAIEmbeddings(BaseModel, Embeddings):
         Return:
             embeddings (List[float]): 输入文本的 embedding，一个浮点数值列表.
         """
-        resp = self.embed_documents([text])
-        return resp[0]
+        embeddings = self.client.embeddings.create(
+            model="embedding-2",
+            input=text
+        )
+        return embeddings.data[0].embedding
+    
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        """
+        生成输入文本列表的 embedding.
+        Args:
+            texts (List[str]): 要生成 embedding 的文本列表.
 
-
-
+        Returns:
+            List[List[float]]: 输入列表中每个文档的 embedding 列表。每个 embedding 都表示为一个浮点值列表。
+        """
+        return [self.embed_query(text) for text in texts]
+    
+    
     async def aembed_documents(self, texts: List[str]) -> List[List[float]]:
         """Asynchronous Embed search docs."""
         raise NotImplementedError("Please use `embed_documents`. Official does not support asynchronous requests")
