@@ -1,21 +1,12 @@
-#!/usr/bin/env python
-# -*- encoding: utf-8 -*-
-'''
-@File    :   wenxin_llm.py
-@Time    :   2023/09/22 14:27:55
-@Author  :   Logan Zou 
-@Version :   1.0
-@Contact :   loganzou0421@163.com
-@License :   (C)Copyright 2017-2018, Liugroup-NLPR-CASIA
-@Desc    :   基于 LangChain 定义文心模型调用方式
-'''
+
+# 基于 LangChain 定义文心模型调用方式
 
 from typing import Any, List, Mapping, Optional, Dict
 from langchain_core.callbacks.manager import CallbackManagerForLLMRun
 from langchain_core.language_models.llms import LLM
 import qianfan
 
-# 继承自 langchain.llms.base.LLM
+# 继承自 langchain_core.language_models.llms.LLM
 class Wenxin_LLM(LLM):
     # 默认选用 ERNIE-Bot-turbo 模型，即目前一般所说的百度文心大模型
     model: str = "ERNIE-Bot-turbo"
