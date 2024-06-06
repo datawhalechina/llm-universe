@@ -69,7 +69,7 @@ def embed_query(self, text: str) -> List[float]:
     生成输入文本的 embedding.
 
     Args:
-        texts (str): 要生成 embedding 的文本.
+        text (str): 要生成 embedding 的文本.
 
     Return:
         embeddings (List[float]): 输入文本的 embedding，一个浮点数值列表.
