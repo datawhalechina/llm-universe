@@ -1,11 +1,16 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+
 from typing import Any, List, Mapping, Optional, Dict
 from langchain_core.callbacks.manager import CallbackManagerForLLMRun
 from langchain_core.language_models.llms import LLM
 from zhipuai import ZhipuAI
 
-# 继承自 langchain_core.language_models.llms.LLM
+import os
+
+# 继承自 langchain.llms.base.LLM
 class ZhipuAILLM(LLM):
-    # 默认选用 glm-4 模型
+    # 默认选用 glm-4
     model: str = "glm-4"
     # 温度系数
     temperature: float = 0.1
@@ -15,7 +20,10 @@ class ZhipuAILLM(LLM):
     def _call(self, prompt : str, stop: Optional[List[str]] = None,
                 run_manager: Optional[CallbackManagerForLLMRun] = None,
                 **kwargs: Any):
-        
+        client = ZhipuAI(
+            api_key = self.api_key
+        )
+
         def gen_glm_params(prompt):
             '''
             构造 GLM 模型请求参数 messages
@@ -26,10 +34,6 @@ class ZhipuAILLM(LLM):
             messages = [{"role": "user", "content": prompt}]
             return messages
         
-        client = ZhipuAI(
-            api_key=self.api_key
-        )
-     
         messages = gen_glm_params(prompt)
         response = client.chat.completions.create(
             model = self.model,
@@ -45,7 +49,7 @@ class ZhipuAILLM(LLM):
     # 首先定义一个返回默认参数的方法
     @property
     def _default_params(self) -> Dict[str, Any]:
-        """获取调用Ennie API的默认参数。"""
+        """获取调用API的默认参数。"""
         normal_params = {
             "temperature": self.temperature,
             }
