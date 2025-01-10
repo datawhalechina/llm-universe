@@ -166,4 +166,4 @@ cython_debug/
 **/.streamlit/
 *.sqlite
 
-.env
+**/.env

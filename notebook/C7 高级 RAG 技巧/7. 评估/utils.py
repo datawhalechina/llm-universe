@@ -15,7 +15,7 @@ nest_asyncio.apply()
 
 _ = load_dotenv(find_dotenv())
 
-# 评测llm，这里可以更换为效果更好的模型
+# 评测llm，一般设置为效果更好的模型
 llm = ChatOpenAI(
     temperature=0.01,
     model="glm-3-turbo",
