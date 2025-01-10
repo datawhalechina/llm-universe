@@ -161,3 +161,9 @@ cython_debug/
 */.DS_Store
 
 .idea/
+
+**/m3e-base/
+**/.streamlit/
+*.sqlite
+
+.env
