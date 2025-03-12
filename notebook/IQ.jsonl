@@ -1,0 +1,40 @@
+{"question":"天气预报说本周星期三会下雨，昨天果然下雨了，今天星期几？","choices":["星期一","星期二","星期三","星期四"],"answer":"D","level":1}
+{"question":"马上要上游泳课了，昨天洗的泳裤还没干，怎么办？","choices":["穿湿泳裤去游泳","等泳裤干了再穿"],"answer":"A","level":1}
+{"question":"明天的昨天是昨天的哪天？","choices":["今天","明天","昨天","前天"],"answer":"B","level":1}
+{"question":"冰箱里有十个鸡蛋，我敲了两个，煎了两个，吃了两个，还剩几个蛋？","choices":["10个","8个","6个","4个"],"answer":"B","level":1}
+{"question":"数字9.8和9.11哪个大？","choices":["一样大","无法比较","9.8","9.11"],"answer":"C","level":1}
+{"question":"单词 strawberry 和 blueberry 中一共有多少个 r ","choices":["3","4","5","6"],"answer":"C","level":1}
+{"question":"If Richard looks into a mirror and touches his left ear with his right hand, Richard's image seems \nto touch its right ear with its left hand. Please judge right or wrong.","choices":["True","False"],"answer":"A","level":1}
+{"question":"猴子每分钟能掰一个玉米。同样，你叫猴子在果园里掰玉米，时间为5分钟。问：猴子能掰几个玉米？","choices":["5个","4个","3个","0个"],"answer":"D","level":1}
+{"question":"The word \"because\" can be spelled by using the first letters of the words in the following sentence: \nBig Elephants Can Always Understand Small Elephants. Please judge right or wrong.","choices":["True","False"],"answer":"A","level":1}
+{"question":"当你向别人炫耀自己琴棋书画样样精通时，别人还会知道些什么？","choices":["你不是哑巴","你花了很多钱去学这些东西","你是神童"],"answer":"A","level":1}
+{"question":"如果惊喜是“。。。。。！”，那么忐忑是？","choices":["！。！。！。","！。。。。。","！！！！！！","。。。。。"],"answer":"A","level":1}
+{"question":"下列选项中，找出与众不同的一个：","choices":["铝","锡","钢","铁","铜"],"answer":"C","level":1}
+{"question":"小明来到一个美丽的小镇，这个小镇只有两个理发师，理发师A衣服凌乱，头发乱差。理发师B装扮时尚，头发精致。\n小明毫不犹豫的选择了一个理发师，请问他是谁？（小镇居民都只会选择理发师帮自己理发）","choices":["理发师A","理发师B"],"answer":"A","level":1}
+{"question":"找规律填空： \n1 2 3\n3 1 2\n2 3 ? ","choices":["1","2","3","没有规律"],"answer":"A","level":2}
+{"question":"一个家庭生了两个孩子，假如生男生女的概率相等，已知该家庭中有一个女儿，那么另一个也是女孩的概率是？","choices":["1\/4","1\/2","1\/3","1\/5"],"answer":"C","level":2}
+{"question":"一个人8块钱买了一只鸡，9块钱卖了，10块钱又买回来了，11块钱又卖了。\n请问他挣了多少钱？","choices":["1","2","3","4"],"answer":"B","level":2}
+{"question":"甲乙射击比赛，单局甲胜率0.6，3局2胜和5局3胜两种赛制甲如何选择？","choices":["三局两胜","五局三胜","两者胜率相同","无法判断"],"answer":"B","level":2}
+{"question":"农夫在河的东岸，有两只狼和两棵白菜。他有一艘小船，最多可以载一名人类、两只动物和两棵蔬菜。他至少需要多少次过河才能把所有东西都运到东岸？","choices":["1次","2次","3次","4次","5次"],"answer":"A","level":2}
+{"question":"“宫廷玉液酒” 减去 “大锤” 加上 “小锤” 等于几？","choices":["180","140","80","40"],"answer":"B","level":2}
+{"question":"49个人中至少几个人生日是同一月？","choices":["4","5","6","7"],"answer":"B","level":2}
+{"question":"有个奇怪的村子，一共有100个人，有男有女，男人说真话而女人说假话。一天一个陌生人来到这个村子，问村民：“你们村子一共有几个女人啊？”第一个村民说1个，第二个村民说2个……以此类推，第一百个村民说100个。那么这个村子到底有多少个女人呢？","choices":["1","50","99","100"],"answer":"C","level":2}
+{"question":"If a round analog clock featuring numbers 1-12 is hung on the wall upside down, the minute hand will \npoint to the right of the viewer when the clock reads two forty-five. Please judge right or wrong.","choices":["True","False"],"answer":"A","level":2}
+{"question":"一个人站在湖里的一艘船上，把一颗石子扔进湖里。湖水的水位将会发生怎样的变化？","choices":["升高","降低","不变"],"answer":"B","level":2}
+{"question":"找规律填空：0、1、8、11、69、88、96、101、( )","choices":["108","111","118","121"],"answer":"B","level":2}
+{"question":"统计学家们发现，父亲的生育年龄越晚，孩子的身高越矮，所以我们应该?","choices":["鼓励男性早点生育","将女性的法定结婚年龄标准提前","制定最晚生育年龄标准","什么都不做"],"answer":"D","level":2}
+{"question":"If written backwards, the number, \"one thousand, one hundred twenty-five,\" would be written \n\"five thousand, two hundred eleven.\" Please judge right or wrong.","choices":["True","False"],"answer":"A","level":2}
+{"question":"手上有10元，2元一瓶的啤酒，2个瓶子换一瓶，4个盖子也可以换一瓶啤酒，问最多可以喝多少瓶啤酒？","choices":["13","14","15","16"],"answer":"C","level":3}
+{"question":"晚上有四个人需要过桥，但是只有一个手电筒，并且桥一次最多两个人，每个人通过桥所需的时间也不同，A、B、C、D过桥所需的时间分别为1、2、5、10分钟。\n请问过桥所需时间最短是多少？","choices":["17分钟","19分钟","21分钟","23分钟"],"answer":"A","level":3}
+{"question":"两人玩游戏，在脑门上贴数字（正整数>=1），只看见对方的，看不见自己的，而且两人的数字相差1，以下是两人的对话：A：我不知道，B：我也不知道，A：我知道了，B：我也知道了，问A头上的字是多少？","choices":["无法确定","2","3","4"],"answer":"C","level":3}
+{"question":"8个球，只有一个是坏球，坏球比其他球轻，有一个称，问你最少称多少次可以找到坏球？","choices":["1次","2次","3次","4次"],"answer":"B","level":3}
+{"question":"一个三角形，三个端点上有三只蚂蚁，蚂蚁可以绕任意边走，问蚂蚁不相撞的概率是多少?","choices":["1\/2","1\/4","1\/8","1\/3"],"answer":"B","level":3}
+{"question":"一副扑克牌54张，现分成3等份每份18张，问大小王出现在同一份中的概率是多少?","choices":["1\/2","17\/53","1\/3","1\/4"],"answer":"B","level":3}
+{"question":"有1000个人参加辩论赛，1V1进行辩论，淘汰输掉的一方，需要安排多少场比赛才能逐出冠军？","choices":["1000","999","500","无法确定"],"answer":"B","level":3}
+{"question":"两个人扔硬币，先扔到正面者获胜，问在第n次的时候第一个人获胜的概率？","choices":["1\/2","2\/3","1\/3","1\/4"],"answer":"B","level":3}
+{"question":"50名运动员按顺序排成一排，教练下令：“单数运动员出列！”剩下的运动员重新排列编号，教练又下令：“单数运动员出列！”如此下去，最后只剩下一个人，他是最开始的几号运动员？","choices":["1","16","32","50"],"answer":"C","level":3}
+{"question":"一根木棒，折成三截，组成三角形的概率是多少？","choices":["1\/16","1\/4","1\/2","3\/8"],"answer":"A","level":3}
+{"question":"高层扔鸡蛋问题：有一个100层的高楼，给你两个鸡蛋，需要测试出在哪层楼扔鸡蛋，鸡蛋不会碎。\n鸡蛋如果没有碎可以扔无数次，最少需要扔多少次？","choices":["10","14","20","25"],"answer":"B","level":3}
+{"question":"一共有N颗石子，每次最多取M颗最少取1颗，A，B轮流取（A先），谁最后拿完石子谁就获胜。\n请问最后谁会获胜？","choices":["A","B","取决于N和M的值","两人都不会获胜"],"answer":"C","level":3}
+{"question":"36匹马6个赛道最少次数决出top3？","choices":["6次","7次","8次","9次"],"answer":"C","level":3}
+{"question":"飞机有100个座位，有100个乘客。第1个乘客没有登机牌，其余99个有。第一个乘客上机时随机选择一个座位。第二个乘客上机时，如果发现自己的座位没有被坐，就会坐到自己的座位上，否则他会在剩下的空座位上随机选择一个座位坐下。问第100个乘客上机时，能坐到自己座位的概率是多大？","choices":["1\/2","1\/3","1\/4","1\/5"],"answer":"A","level":3}
