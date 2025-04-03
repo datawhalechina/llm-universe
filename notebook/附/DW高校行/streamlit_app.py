@@ -65,37 +65,29 @@ class Embeddings(Embeddings):
 # LLM 封装
 
 class DeepSeekLLM(LLM):
-    # 基于 SCNet 的 DeepSeek 接口自定义 LLM 类
+    '''需自行补充'''
+    # 基于 DeepSeek 接口自定义 LLM 类
     api_key : str = None
     model: str = None
     client: OpenAI = None
 
-    def __init__(self, api_key=None, model="DeepSeek-R1-Distill-Qwen-32B"):
+    def __init__(self, api_key=None, model=None):
         # model：选择使用的模型
         # 从本地初始化模型
         super().__init__()
         self.api_key = api_key
         self.model = model
-        self.client = OpenAI(api_key=self.api_key, base_url="https://api.scnet.cn/api/llm/v1")
 
     def _call(self, prompt : str, stop: Optional[List[str]] = None,
                 run_manager: Optional[CallbackManagerForLLMRun] = None,
                 **kwargs: Any):
         # 重写调用函数
-        response = self.client.chat.completions.create(
-        model=self.model,
-        messages=[
-            {"role": "system", "content": "You are a helpful assistant"},
-            {"role": "user", "content": prompt},
-        ],
-        stream=False
-        )
         
-        return response.choices[0].message.content
+        return None
         
     @property
     def _llm_type(self) -> str:
-        return "SCNet"
+        return "DeepSeek"
 
 # 1. 定义 get_retriever 函数，该函数返回一个检索器
 def get_retriever():
