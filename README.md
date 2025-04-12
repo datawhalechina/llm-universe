@@ -72,39 +72,39 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 
 负责人：邹雨衡
 
-1. [LLM 介绍](./notebook/C1%20大型语言模型%20LLM%20介绍/) @高立业
-   1. [LLM 的理论介绍](./notebook/C1%20大型语言模型%20LLM%20介绍/1.大型语言模型%20LLM%20理论简介.md)
-   2. [什么是 RAG，RAG 的核心优势](./notebook/C1%20大型语言模型%20LLM%20介绍/2.检索增强生成%20RAG%20简介.md)
-   3. [什么是 LangChain](./notebook/C1%20大型语言模型%20LLM%20介绍/3.LangChain%20简介.md)
-   4. [开发 LLM 应用的整体流程](./notebook/C1%20大型语言模型%20LLM%20介绍/4.开发%20LLM%20应用的整体流程.md)
-   5. [阿里云服务器的基本使用](./notebook/C1%20大型语言模型%20LLM%20介绍/5.阿里云服务器的基本使用.md)
-   6. [GitHub Codespaces 的基本使用（选修）](./notebook/C1%20大型语言模型%20LLM%20介绍/6.GitHub%20Codespaces%20的基本使用（选修）.md)
+1. [LLM 介绍](./notebook/C1%20大型语言模型%20LLM%20介绍/C1.md) @高立业
+   1. [LLM 的理论介绍](./notebook/C1%20大型语言模型%20LLM%20介绍/C1.md#1-大型语言模型-llm-理论简介)
+   2. [什么是 RAG，RAG 的核心优势](./notebook/C1%20大型语言模型%20LLM%20介绍/C1.md#2-检索增强生成-rag-简介)
+   3. [什么是 LangChain](./notebook/C1%20大型语言模型%20LLM%20介绍/C1.md#3-langchain-简介)
+   4. [开发 LLM 应用的整体流程](./notebook/C1%20大型语言模型%20LLM%20介绍/C1.md#4-开发-llm-应用的整体流程)
+   5. [阿里云服务器的基本使用](./notebook/C1%20大型语言模型%20LLM%20介绍/C1.md#5-阿里云服务器的基本使用)
+   6. [GitHub Codespaces 的基本使用（选修）](./notebook/C1%20大型语言模型%20LLM%20介绍/C1.md#6-github-codespaces-的基本使用选修)
    7. [环境配置](./notebook/C1%20大型语言模型%20LLM%20介绍/7.环境配置.md)
-2. [使用 LLM API 开发应用](./notebook/C2%20使用%20LLM%20API%20开发应用/) @毛雨
-   1. [基本概念](./notebook/C2%20使用%20LLM%20API%20开发应用/1.%20基本概念.md)
-   2. [使用 LLM API](./notebook/C2%20使用%20LLM%20API%20开发应用/2.%20使用%20LLM%20API.ipynb)
+2. [使用 LLM API 开发应用](./notebook/C2%20使用%20LLM%20API%20开发应用/C2.ipynb) @毛雨
+   1. [基本概念](./notebook/C2%20使用%20LLM%20API%20开发应用/C2.ipynb#1-基本概念)
+   2. [使用 LLM API](./notebook/C2%20使用%20LLM%20API%20开发应用/C2.ipynb#2-使用-llm-api)
         - ChatGPT
         - 文心一言
         - 讯飞星火
         - 智谱 GLM
-   3. [Prompt Engineering](./notebook/C2%20使用%20LLM%20API%20开发应用/3.%20Prompt%20Engineering.ipynb)
-3. [搭建知识库](./notebook/C3%20搭建知识库/) @娄天奥
-   1. [词向量及向量知识库介绍](./notebook/C3%20搭建知识库/1.词向量及向量知识库介绍.md)
-   2. [使用 Embedding API](./notebook/C3%20搭建知识库/2.使用%20Embedding%20API.ipynb)
-   3. [数据处理：读取、清洗与切片](./notebook/C3%20搭建知识库/3.数据处理.ipynb)
-   4. [搭建并使用向量数据库](./notebook/C3%20搭建知识库/4.搭建并使用向量数据库.ipynb)
-4. [构建 RAG 应用](./notebook/C4%20构建%20RAG%20应用/) @徐虎
-   1. [将 LLM 接入 LangChain](./notebook/C4%20构建%20RAG%20应用/1.LLM%20接入%20LangChain.ipynb)
+   3. [Prompt Engineering](./notebook/C2%20使用%20LLM%20API%20开发应用/C2.ipynb#3-prompt-engineering)
+3. [搭建知识库](./notebook/C3%20搭建知识库/C3.ipynb) @娄天奥
+   1. [词向量及向量知识库介绍](./notebook/C3%20搭建知识库/C3.ipynb#1-词向量及向量知识库介绍)
+   2. [使用 Embedding API](./notebook/C3%20搭建知识库/C3.ipynb#2-使用-embedding-api)
+   3. [数据处理：读取、清洗与切片](./notebook/C3%20搭建知识库/C3.ipynb#3-数据处理读取清洗与切片)
+   4. [搭建并使用向量数据库](./notebook/C3%20搭建知识库/C3.ipynb#4-搭建并使用向量数据库)
+4. [构建 RAG 应用](./notebook/C4%20构建%20RAG%20应用/C4.ipynb) @徐虎
+   1. [将 LLM 接入 LangChain](./notebook/C4%20构建%20RAG%20应用/C4.ipynb#1-将-llm-接入-langchain)
         - ChatGPT
         - 文心一言
         - 讯飞星火
         - 智谱 GLM
-   2. [基于 LangChain 搭建检索问答链](./notebook/C4%20构建%20RAG%20应用/2.构建检索问答链.ipynb)
-   3. [基于 Streamlit 部署知识库助手](./notebook/C4%20构建%20RAG%20应用/3.部署知识库助手.ipynb)
-5. [系统评估与优化](./notebook/C5%20系统评估与优化/) @邹雨衡
-   1. [如何评估 LLM 应用](./notebook/C5%20系统评估与优化/1.如何评估%20LLM%20应用.ipynb)
-   2. [评估并优化生成部分](./notebook/C5%20系统评估与优化/2.评估并优化生成部分.ipynb)
-   3. [评估并优化检索部分](./notebook/C5%20系统评估与优化/3.评估并优化检索部分.md)
+   2. [基于 LangChain 搭建检索问答链](./notebook/C4%20构建%20RAG%20应用/C4.ipynb#2-基于-langchain-搭建检索问答链)
+   3. [基于 Streamlit 部署知识库助手](./notebook/C4%20构建%20RAG%20应用/C4.ipynb#3-基于-streamlit-部署知识库助手)
+5. [系统评估与优化](./notebook/C5%20系统评估与优化/C5.ipynb) @邹雨衡
+   1. [如何评估 LLM 应用](./notebook/C5%20系统评估与优化/C5.ipynb#1-如何评估-llm-应用)
+   2. [评估并优化生成部分](./notebook/C5%20系统评估与优化/C5.ipynb#2-评估并优化生成部分)
+   3. [评估并优化检索部分](./notebook/C5%20系统评估与优化/C5.ipynb#3-评估并优化检索部分)
 
 ### 第二部分 进阶 RAG 技巧（正在创作）
 
