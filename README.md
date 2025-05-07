@@ -73,67 +73,67 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 负责人：邹雨衡
 
 1. [LLM 介绍](./notebook/C1%20大型语言模型%20LLM%20介绍/) @高立业
-   1. [LLM 的理论介绍](https://github.com/datawhalechina/llm-universe/blob/main/notebook/C1%20%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%20%E4%BB%8B%E7%BB%8D/C1.md#11-%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8Bllm%E7%AE%80%E4%BB%8B)
-   2. [什么是 RAG](https://github.com/datawhalechina/llm-universe/blob/main/notebook/C1%20%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%20%E4%BB%8B%E7%BB%8D/C1.md#12-%E4%BB%80%E4%B9%88%E6%98%AF-rag)
-   3. [什么是 LangChain](https://github.com/datawhalechina/llm-universe/blob/main/notebook/C1%20%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%20%E4%BB%8B%E7%BB%8D/C1.md#13-langchain)
-   4. [开发 LLM 应用的整体流程](https://github.com/datawhalechina/llm-universe/blob/main/notebook/C1%20%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%20%E4%BB%8B%E7%BB%8D/C1.md#14-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91)
-   5. [阿里云服务器的基本使用](https://github.com/datawhalechina/llm-universe/blob/main/notebook/C1%20%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%20%E4%BB%8B%E7%BB%8D/C1.md#15-%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)
-   6. [GitHub Codespaces 的基本使用（选修）](https://github.com/datawhalechina/llm-universe/blob/main/notebook/C1%20%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%20%E4%BB%8B%E7%BB%8D/C1.md#16-github-codespaces-%E6%A6%82%E8%BF%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E9%80%89%E4%BF%AE)
-   7. [环境配置](https://github.com/datawhalechina/llm-universe/blob/main/notebook/C1%20%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%20%E4%BB%8B%E7%BB%8D/C1.md#17-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE)
+   1. [x] [LLM 的理论介绍](https://github.com/datawhalechina/llm-universe/blob/main/notebook/C1%20%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%20%E4%BB%8B%E7%BB%8D/C1.md#11-%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8Bllm%E7%AE%80%E4%BB%8B)
+   2. [x] [什么是 RAG](https://github.com/datawhalechina/llm-universe/blob/main/notebook/C1%20%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%20%E4%BB%8B%E7%BB%8D/C1.md#12-%E4%BB%80%E4%B9%88%E6%98%AF-rag)
+   3. [x] [什么是 LangChain](https://github.com/datawhalechina/llm-universe/blob/main/notebook/C1%20%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%20%E4%BB%8B%E7%BB%8D/C1.md#13-langchain)
+   4. [x] [开发 LLM 应用的整体流程](https://github.com/datawhalechina/llm-universe/blob/main/notebook/C1%20%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%20%E4%BB%8B%E7%BB%8D/C1.md#14-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91)
+   5. [x] [阿里云服务器的基本使用](https://github.com/datawhalechina/llm-universe/blob/main/notebook/C1%20%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%20%E4%BB%8B%E7%BB%8D/C1.md#15-%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)
+   6. [x] [GitHub Codespaces 的基本使用（选修）](https://github.com/datawhalechina/llm-universe/blob/main/notebook/C1%20%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%20%E4%BB%8B%E7%BB%8D/C1.md#16-github-codespaces-%E6%A6%82%E8%BF%B0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E9%80%89%E4%BF%AE)
+   7. [x] [环境配置](https://github.com/datawhalechina/llm-universe/blob/main/notebook/C1%20%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%20LLM%20%E4%BB%8B%E7%BB%8D/C1.md#17-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE)
 2. [使用 LLM API 开发应用](./notebook/C2%20使用%20LLM%20API%20开发应用/) @毛雨
-   1. 基本概念
-   2. 使用 LLM API
+   1. [x] 基本概念
+   2. [x] 使用 LLM API
         - ChatGPT
         - 文心一言
         - 讯飞星火
         - 智谱 GLM
-   3. Prompt Engineering
+   3. [x] Prompt Engineering
 3. [搭建知识库](./notebook/C3%20搭建知识库/) @娄天奥
-   1. 词向量及向量知识库介绍
-   2. 使用 Embedding API
-   3. 数据处理：读取、清洗与切片
-   4. 搭建并使用向量数据库
+   1. [x] 词向量及向量知识库介绍
+   2. [x] 使用 Embedding API
+   3. [x] 数据处理：读取、清洗与切片
+   4. [x] 搭建并使用向量数据库
 4. [构建 RAG 应用](./notebook/C4%20构建%20RAG%20应用/) @徐虎
-   1. 将 LLM 接入 LangChain
+   1. [x] 将 LLM 接入 LangChain
         - ChatGPT
         - 文心一言
         - 讯飞星火
         - 智谱 GLM
-   2. 基于 LangChain 搭建检索问答链
-   3. 基于 Streamlit 部署知识库助手
+   2. [x] 基于 LangChain 搭建检索问答链
+   3. [x] 基于 Streamlit 部署知识库助手
 5. [系统评估与优化](./notebook/C5%20系统评估与优化/) @邹雨衡
-   1. 如何评估 LLM 应用
-   2. 评估并优化生成部分
-   3. 评估并优化检索部分
+   1. [x] 如何评估 LLM 应用
+   2. [x] 评估并优化生成部分
+   3. [x] 评估并优化检索部分
 
 ### 第二部分 进阶 RAG 技巧（正在创作）
 
 负责人：高立业
 
 1. 背景
-   1. 架构概览
-   2. 存在的问题
-   3. 解决方法
+   1. [ ] 架构概览
+   2. [ ] 存在的问题
+   3. [ ] 解决方法
 2. [数据处理](./notebook/C7%20高级%20RAG%20技巧/2.%20数据处理/)
-   1. 多类型文档处理
-   2. 分块优化
-   3. 向量模型的选择
-   4. 微调向量模型（进阶）
+   1. [x] 多类型文档处理
+   2. [x] 分块优化
+   3. [x] 向量模型的选择
+   4. [x] 微调向量模型（进阶）
 3. 索引层面
-   1. 索引结构
-   2. 混合检索
-   3. 假设性问题
+   1. [ ] 索引结构
+   2. [ ] 混合检索
+   3. [ ] 假设性问题
 4. 检索阶段
-   1. query 过滤
-   2. 对齐 query 和 文档
-   3. 对齐检索和 LLM
+   1. [ ] query 过滤
+   2. [ ] 对齐 query 和 文档
+   3. [ ] 对齐检索和 LLM
 5. 生成阶段
-   1. 后处理
-   2. 微调 LLM（进阶）
-   3. 参考引用
+   1. [ ] 后处理
+   2. [ ] 微调 LLM（进阶）
+   3. [ ] 参考引用
 6. 增强阶段
-   1. 上下文增强
-   2. 增强流程
+   1. [ ] 上下文增强
+   2. [ ] 增强流程
 7. RAG 工程化评估
 
 ### 第三部分 开源 LLM 应用解读
