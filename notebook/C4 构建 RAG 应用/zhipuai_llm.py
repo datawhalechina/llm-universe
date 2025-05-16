@@ -1,3 +1,4 @@
+import os
 from typing import Any, Dict, Iterator, List, Optional
 from zhipuai import ZhipuAI
 from langchain_core.callbacks import (
@@ -45,7 +46,8 @@ class ZhipuaiLLM(BaseChatModel):
 
         messages = [_convert_message_to_dict(message) for message in messages]
         start_time = time.time()
-        response = ZhipuAI(api_key=self.api_key).chat.completions.create(
+
+        response = ZhipuAI(api_key=os.getenv("ZHIPUAI_API_KEY")).chat.completions.create(
             model=self.model_name,
             temperature=self.temperature,
             max_tokens=self.max_tokens,
@@ -167,7 +169,8 @@ def _convert_message_to_dict(message: BaseMessage) -> dict:
 
 if __name__ == "__main__":
     # Test
-    model = ZhipuaiLLM(model_name="glm-4-plus")
+    api_key = os.getenv("ZHIPUAI_API_KEY")
+    model = ZhipuaiLLM(model_name="glm-4-plus", api_key=api_key)
     # invoke
     answer = model.invoke("Hello")
     print(answer)
