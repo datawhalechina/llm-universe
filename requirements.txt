@@ -13,3 +13,4 @@ pymupdf==1.25.3
 markdown==3.7
 streamlit==1.43.0
 jieba==0.42.1
+pydantic==2.10.6
