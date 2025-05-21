@@ -1,10 +1,19 @@
-# 动手学大模型应用开发
+# LLM Universe | 动手学大模型应用开发
+
 
 <div align=center>
 <img src="figures/C0-0-logo.png" width = "1000">
 </div>
 
 ## 项目简介
+
+[![Stars](https://img.shields.io/github/stars/datawhalechina/llm-universe?style=social)](https://github.com/datawhalechina/llm-universe/stargazers)
+![GitHub forks](https://img.shields.io/github/forks/datawhalechina/llm-universe)
+[![Contributors](https://img.shields.io/badge/Contributors-21-brightgreen)](https://github.com/datawhalechina/llm-universe/graphs/contributors)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue)](https://www.python.org/)
+[![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-1.0-orange)](https://jupyter.org/)
+[![Online Reading](https://img.shields.io/badge/Online%20Reading-Click%20Here-blue)](https://datawhalechina.github.io/llm-universe/)
+[![Download PDF](https://img.shields.io/badge/Download%20PDF-Click%20Here-red)](https://github.com/datawhalechina/llm-universe/releases/tag/v1)
 
 本项目是一个面向小白开发者的大模型应用开发教程，旨在基于阿里云服务器，结合个人知识库助手项目，通过一个课程完成大模型开发的重点入门，主要内容包括：
 
