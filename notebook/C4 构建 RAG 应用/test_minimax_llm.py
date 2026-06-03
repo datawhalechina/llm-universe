@@ -61,8 +61,8 @@ class TestMinimaxLLMInit(unittest.TestCase):
         self.assertEqual(llm.model_name, "MiniMax-M3")
 
     def test_custom_model_name(self):
-        llm = MinimaxLLM(model_name="MiniMax-M3-highspeed", api_key="test-key")
-        self.assertEqual(llm.model_name, "MiniMax-M3-highspeed")
+        llm = MinimaxLLM(model_name="MiniMax-M2.7-highspeed", api_key="test-key")
+        self.assertEqual(llm.model_name, "MiniMax-M2.7-highspeed")
 
     def test_llm_type(self):
         llm = MinimaxLLM(model_name="MiniMax-M3", api_key="test-key")
@@ -247,11 +247,11 @@ class TestMinimaxLLMGenerate(unittest.TestCase):
         mock_client.chat.completions.create.return_value = self._make_mock_response()
         mock_openai_cls.return_value = mock_client
 
-        llm = MinimaxLLM(api_key="test-key", model_name="MiniMax-M3-highspeed")
+        llm = MinimaxLLM(api_key="test-key", model_name="MiniMax-M2.7-highspeed")
         llm._generate([HumanMessage(content="test")])
 
         call_args = mock_client.chat.completions.create.call_args
-        self.assertEqual(call_args.kwargs["model"], "MiniMax-M3-highspeed")
+        self.assertEqual(call_args.kwargs["model"], "MiniMax-M2.7-highspeed")
 
     @patch("minimax_llm.OpenAI")
     def test_legacy_m27_model_passthrough(self, mock_openai_cls):
@@ -403,8 +403,9 @@ class TestMinimaxLLMIntegration(unittest.TestCase):
         self.assertTrue(len(full_content) > 0)
 
     def test_highspeed_model(self):
+        """M2.7-highspeed 备选模型仍可正常使用。"""
         llm = MinimaxLLM(
-            model_name="MiniMax-M3-highspeed",
+            model_name="MiniMax-M2.7-highspeed",
             api_key=self.api_key,
             temperature=0.5,
         )

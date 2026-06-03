@@ -25,7 +25,7 @@ class MinimaxLLM(BaseChatModel):
 
     通过 OpenAI 兼容接口调用 MiniMax 大模型 API。
     默认模型为 MiniMax-M3（512K 上下文，128K 最大输出，支持图片输入），
-    同时保留 MiniMax-M2.7 作为备选。
+    同时保留 MiniMax-M2.7 与 MiniMax-M2.7-highspeed 作为备选。
     """
 
     model_name: str = "MiniMax-M3"
