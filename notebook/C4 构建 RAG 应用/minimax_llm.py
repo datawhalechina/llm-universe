@@ -24,10 +24,11 @@ class MinimaxLLM(BaseChatModel):
     """自定义 MiniMax 聊天模型。
 
     通过 OpenAI 兼容接口调用 MiniMax 大模型 API。
-    支持 MiniMax-M2.7、MiniMax-M2.7-highspeed、MiniMax-M2.5、MiniMax-M2.5-highspeed 等模型。
+    默认模型为 MiniMax-M3（512K 上下文，128K 最大输出，支持图片输入），
+    同时保留 MiniMax-M2.7 作为备选。
     """
 
-    model_name: str = "MiniMax-M2.7"
+    model_name: str = "MiniMax-M3"
     temperature: Optional[float] = None
     max_tokens: Optional[int] = None
     timeout: Optional[int] = None
@@ -195,7 +196,7 @@ def _convert_message_to_dict(message: BaseMessage) -> dict:
 
 if __name__ == "__main__":
     # Test
-    model = MinimaxLLM(model_name="MiniMax-M2.7")
+    model = MinimaxLLM(model_name="MiniMax-M3")
     # invoke
     answer = model.invoke("Hello")
     print(answer)
