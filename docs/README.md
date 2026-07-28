@@ -69,14 +69,14 @@ LLM 正逐步成为信息世界的新革命力量，其通过强大的自然语�
 负责人：邹雨衡
 
 
-1. [LLM 介绍](./C1/) @高立业
-   1. [LLM 的理论介绍](./C1/1.大语言模型%20LLM%20理论简介.md)
-   2. [什么是 RAG，RAG 的核心优势](./C1/2.检索增强生成%20RAG%20简介.md)
-   3. [什么是 LangChain](./C1/3.LangChain%20简介.md)
-   4. [开发 LLM 应用的整体流程](./C1/4.开发%20LLM%20应用的整体流程.md)
-   5. [阿里云服务器的基本使用](./C1/5.阿里云服务器的基本使用.md)
-   6. [GitHub Codespaces 的基本使用（选修）](./C1/6.GitHub%20Codespaces%20的基本使用（选修）.md)
-   7. [环境配置](./C1/7.环境配置.md)
+1. [LLM 介绍](./C1/C1.md) @高立业
+   1. [LLM 的理论介绍](./C1/C1.md#11-大型语言模型llm简介)
+   2. [什么是 RAG，RAG 的核心优势](./C1/C1.md#12-什么是-rag)
+   3. [什么是 LangChain](./C1/C1.md#13-langchain)
+   4. [开发 LLM 应用的整体流程](./C1/C1.md#14-大模型开发)
+   5. [阿里云服务器的基本使用](./C1/C1.md#15-阿里云服务器的基本使用)
+   6. [GitHub Codespaces 的基本使用（选修）](./C1/C1.md#16-github-codespaces-概述环境配置选修)
+   7. [环境配置](./C1/C1.md#17-环境配置)
 2. [使用 LLM API 开发应用](./C2/) @毛雨
    1. [基本概念](./C2/1.%20基本概念.md)
    2. [使用 LLM API](./C2/2.%20使用%20LLM%20API.md)
@@ -171,5 +171,4 @@ Made with [contrib.rocks](https://contrib.rocks).
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=datawhalechina/llm-universe&type=Date)](https://star-history.com/#datawhalechina/llm-universe&Date)
-
 
