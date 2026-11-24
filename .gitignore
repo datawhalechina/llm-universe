@@ -162,6 +162,3 @@ cython_debug/
 */*/.DS_Store
 .idea/
 .DS_Store
-
-# 第一章绘图源文件与本地导出文件
-/.c1-diagrams/
