@@ -1,0 +1,15 @@
+flowchart TB
+    A["2019–2022：从语言模型到对话产品<br/>GPT-2 · GPT-3 · ChatGPT"]
+    B["2023：模型系列陆续发布<br/>GPT-4 · Claude 1/2 · Gemini 1 · Llama 1/2<br/>Grok-1 · Qwen1 · ChatGLM-6B"]
+    C["2024：多模态、推理与开放权重<br/>GPT-4o · o1 · Claude 3 · Llama 3<br/>Gemini 2 · DeepSeek-V3 · Qwen2"]
+    D["2025：推理模型与多步任务<br/>DeepSeek-R1 · GPT-5 · Claude 4 · Gemini 3<br/>Llama 4 · Grok 4 · Qwen3 · Kimi K2 · Seed 1.6"]
+    E["2026：代表型号"]
+    F["国外<br/>GPT-6.2 Astra · Claude Fable 5.2<br/>Gemini 4 · Muse Wonder · Grok 4.7"]
+    G["国内<br/>DeepSeek V4.1 Flash · Qwen4-Max · Kimi K3.1 Pro · GLM-5.4<br/>Seed 2.1 · Hy4 flash · MiMo-V2.6 · ERNIE 5.5 Flash Preview"]
+    A --> B --> C --> D --> E
+    E --> F
+    E --> G
+    classDef period fill:#eef4ff,stroke:#617ba8,color:#162643;
+    classDef recent fill:#e8f7f2,stroke:#488d79,color:#173b30;
+    class A,B,C,D period
+    class E,F,G recent
